@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2021_09_15_202041) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+<<<<<<< HEAD
   create_table "foreigns", force: :cascade do |t|
     t.string "name"
     t.string "last_name"
@@ -55,6 +56,8 @@ ActiveRecord::Schema.define(version: 2021_09_15_202041) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+=======
+>>>>>>> main
   create_table "sellers", force: :cascade do |t|
     t.string "name"
     t.string "email"
