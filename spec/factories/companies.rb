@@ -5,6 +5,5 @@ FactoryBot.define do
     company_name { Faker::Company.name }
     fantasy_name { Faker::Company.name }
     business_phone { Faker::Number.number(digits: 10) }
-    address { Faker::Address.full_address }
   end
 end
