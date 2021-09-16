@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bae9e0c6-d60f-475a-b50b-709adf98fd41" name="Changes" comment="" />
+    <list default="true" id="bae9e0c6-d60f-475a-b50b-709adf98fd41" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/billing-registration.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/billing-registration.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/database.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -70,10 +75,17 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../tiva" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/spec/requests/api/v1" />
+    </key>
   </component>
   <component name="RubyModuleManagerSettings">
     <option name="blackListedRootsPaths">
@@ -85,7 +97,7 @@
   <component name="RunManager" selected="Rails.Development: billing-registration">
     <configuration default="true" type="RackRunConfigurationType" factoryName="Rack">
       <RACK_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="" />
-      <RACK_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="" />
+      <RACK_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
       <RACK_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
       <RACK_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
       <RACK_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
@@ -108,7 +120,7 @@
       <module name="billing-registration" />
       <predefined_log_file enabled="true" id="RUBY_RAILS_SERVER" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
@@ -133,7 +145,7 @@
       <module name="billing-registration" />
       <predefined_log_file enabled="true" id="RUBY_RAILS_SERVER" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
@@ -157,7 +169,7 @@
     <configuration name="spec: billing-registration" type="RakeRunConfigurationType" factoryName="Rake">
       <module name="billing-registration" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
@@ -181,7 +193,7 @@
     <configuration name="test: billing-registration" type="RakeRunConfigurationType" factoryName="Rake">
       <module name="billing-registration" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
@@ -221,6 +233,56 @@
       <workItem from="1631739192933" duration="16000" />
       <workItem from="1631739210746" duration="1067000" />
     </task>
+    <task id="LOCAL-00001" summary="refactor: remove address from companies">
+      <created>1631811605588</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1631811605588</updated>
+    </task>
+    <task id="LOCAL-00002" summary="feat: add company reference to addresses">
+      <created>1631811645850</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1631811645850</updated>
+    </task>
+    <task id="LOCAL-00003" summary="refactor: removing address from factory bot">
+      <created>1631811699553</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1631811699553</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feat: adding the rest of the params to controller">
+      <created>1631811733893</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1631811733893</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feat: adding the rest of data to representer">
+      <created>1631811784435</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1631811784435</updated>
+    </task>
+    <task id="LOCAL-00006" summary="feat: adding companies create route">
+      <created>1631812189484</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1631812189484</updated>
+    </task>
+    <task id="LOCAL-00007" summary="feat: companies create request spec">
+      <created>1631812340823</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1631812340823</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -237,5 +299,18 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="refactor: remove address from companies" />
+    <MESSAGE value="feat: add company reference to addresses" />
+    <MESSAGE value="refactor: removing address from factory bot" />
+    <MESSAGE value="feat: adding the rest of the params to controller" />
+    <MESSAGE value="feat: adding the rest of data to representer" />
+    <MESSAGE value="feat: adding companies create route" />
+    <MESSAGE value="feat: companies create request spec" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: companies create request spec" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/billing_registration@Development__billing_registration.rcov" NAME="Development: billing-registration Coverage Results" MODIFIED="1631734837517" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="billing-registration" />
   </component>
 </project>

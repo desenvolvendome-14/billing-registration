@@ -10,5 +10,6 @@ FactoryBot.define do
     carrier { nil }
     seller { nil }
     supplier { nil }
+    company { nil }
   end
 end

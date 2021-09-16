@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_16_083640) do
+ActiveRecord::Schema.define(version: 2021_09_16_165238) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,12 +26,23 @@ ActiveRecord::Schema.define(version: 2021_09_16_083640) do
     t.bigint "carrier_id", null: false
     t.bigint "seller_id", null: false
     t.bigint "supplier_id", null: false
+    t.bigint "bank_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "company_id", null: false
+    t.index ["bank_id"], name: "index_addresses_on_bank_id"
     t.index ["carrier_id"], name: "index_addresses_on_carrier_id"
     t.index ["client_id"], name: "index_addresses_on_client_id"
+    t.index ["company_id"], name: "index_addresses_on_company_id"
     t.index ["seller_id"], name: "index_addresses_on_seller_id"
     t.index ["supplier_id"], name: "index_addresses_on_supplier_id"
+  end
+
+  create_table "banks", force: :cascade do |t|
+    t.integer "code"
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "carriers", force: :cascade do |t|
@@ -44,6 +55,16 @@ ActiveRecord::Schema.define(version: 2021_09_16_083640) do
   create_table "clients", force: :cascade do |t|
     t.string "name"
     t.string "email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.string "cnpj"
+    t.string "state_registration"
+    t.string "company_name"
+    t.string "fantasy_name"
+    t.string "business_phone"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -88,8 +109,10 @@ ActiveRecord::Schema.define(version: 2021_09_16_083640) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "addresses", "banks"
   add_foreign_key "addresses", "carriers"
   add_foreign_key "addresses", "clients"
+  add_foreign_key "addresses", "companies"
   add_foreign_key "addresses", "sellers"
   add_foreign_key "addresses", "suppliers"
 end
