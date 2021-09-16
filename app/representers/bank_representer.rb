@@ -5,9 +5,9 @@ class BankRepresenter
 
   def as_json
     {
-      id: bank.id,
-      code: bank.code,
-      description: bank.description
+      id: @bank.id,
+      code: @bank.code,
+      description: @bank.description
     }
   end
 
