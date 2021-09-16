@@ -26,3 +26,15 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 /config/database.yml
+
+/.idea/billing-registration.iml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/shelf/Uncommitted_changes_before_rebase_[Default_Changelist]/shelved.patch
+/.idea/shelf/Uncommitted_changes_before_rebase_[local_files]/shelved.patch
+/.idea/shelf/Uncommitted_changes_before_rebase__Default_Changelist_.xml
+/.idea/shelf/Uncommitted_changes_before_rebase__local_files_.xml
+/.idea/vcs.xml
+/.idea/workspace.xml
+/.idea/shelf/Uncommitted_changes_before_rebase_[Default_Changelist]/shelved.patch
+/.idea/shelf/Uncommitted_changes_before_rebase_[local_files]/shelved.patch
