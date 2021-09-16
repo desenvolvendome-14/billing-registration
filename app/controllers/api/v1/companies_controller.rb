@@ -13,7 +13,7 @@ module Api
 
       private
       def company_params
-        params.permit(:company_name)
+        params.permit(:company_name, :state_registration, :cnpj, :fantasy_name, :business_phone)
       end
     end
   end
