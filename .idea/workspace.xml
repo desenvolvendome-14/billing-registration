@@ -6,15 +6,25 @@
   <component name="ChangeListManager">
     <list default="true" id="bae9e0c6-d60f-475a-b50b-709adf98fd41" name="Changes" comment="feat: companies create request spec">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/participant.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/participant.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/api/v1/participants_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/api/v1/participants_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/api/v1/participants/index.json.jbuilder.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/api/v1/participants/index.json.jbuilder.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/models/participant_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/models/participant_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/factories/participants.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/factories/participants.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/requests/participants_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/requests/api/v1/participants_spec.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Ruby File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -90,6 +100,7 @@
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/spec/requests/api/v1" />
+      <recent name="$PROJECT_DIR$/app/controllers/api/v1" />
     </key>
   </component>
   <component name="RubyModuleManagerSettings">
@@ -238,7 +249,7 @@
       <workItem from="1631739192933" duration="16000" />
       <workItem from="1631739210746" duration="1067000" />
       <workItem from="1632165326348" duration="96000" />
-      <workItem from="1632217281473" duration="4225000" />
+      <workItem from="1632217281473" duration="8069000" />
     </task>
     <task id="LOCAL-00001" summary="refactor: remove address from companies">
       <created>1631811605588</created>
