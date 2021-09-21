@@ -6,13 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="bae9e0c6-d60f-475a-b50b-709adf98fd41" name="Changes" comment="feat: companies create request spec">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/api/v1/participants_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/api/v1/participants_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/api/v1/participants/index.json.jbuilder.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/api/v1/participants/index.json.jbuilder.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/api/v1/participants/index.json.jbuilder.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/api/v1/participants/index.json.jbuilder" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/factories/participants.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/factories/participants.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/requests/participants_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/requests/api/v1/participants_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/requests/api/v1/banks_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/requests/api/v1/banks_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/requests/api/v1/company_request_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/requests/api/v1/company_request_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/requests/api/v1/participants_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/requests/api/v1/participants_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/support/request_spec_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/support/request_spec_helper.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,6 +99,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/views/api/v1/participants" />
+      <recent name="$PROJECT_DIR$/app/views/api/v1" />
       <recent name="$PROJECT_DIR$/spec/requests/api/v1" />
       <recent name="$PROJECT_DIR$/app/controllers/api/v1" />
     </key>
@@ -249,7 +251,7 @@
       <workItem from="1631739192933" duration="16000" />
       <workItem from="1631739210746" duration="1067000" />
       <workItem from="1632165326348" duration="96000" />
-      <workItem from="1632217281473" duration="8069000" />
+      <workItem from="1632217281473" duration="11766000" />
     </task>
     <task id="LOCAL-00001" summary="refactor: remove address from companies">
       <created>1631811605588</created>

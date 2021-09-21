@@ -33,7 +33,8 @@ module Api
       end
 
       def participant_params
-        params.permit(:name, :cpf_cnpj, :fantasy_name, :person_type, :client_type)
+        return {} unless params.has_key?(:participant)
+        params.require(:participant).permit(:name, :cpf_cnpj, :fantasy_name, :person_type, :client_type)
       end
 
       def save_participant!
