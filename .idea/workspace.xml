@@ -6,37 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="bae9e0c6-d60f-475a-b50b-709adf98fd41" name="Changes" comment="feat: companies create request spec">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/carrier.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/client.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/foreign.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/legal_person.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/physical_person.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/seller.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/supplier.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/database.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20210915202001_create_clients.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20210915202028_create_suppliers.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20210915202034_create_sellers.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20210915202041_create_carriers.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20210915204759_create_physical_people.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20210915205053_create_legal_people.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20210915205132_create_foreigns.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/participant.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/participant.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/factories/carriers.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/factories/clients.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/factories/participants.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/factories/foreigns.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/factories/legal_people.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/factories/physical_people.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/factories/sellers.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/factories/suppliers.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/models/address_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/models/address_spec.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/models/carrier_spec.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/models/client_spec.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/models/foreign_spec.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/models/legal_person_spec.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/models/physical_person_spec.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/models/seller_spec.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/models/supplier_spec.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/models/participant_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/models/participant_spec.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -265,7 +238,7 @@
       <workItem from="1631739192933" duration="16000" />
       <workItem from="1631739210746" duration="1067000" />
       <workItem from="1632165326348" duration="96000" />
-      <workItem from="1632217281473" duration="2852000" />
+      <workItem from="1632217281473" duration="4225000" />
     </task>
     <task id="LOCAL-00001" summary="refactor: remove address from companies">
       <created>1631811605588</created>
