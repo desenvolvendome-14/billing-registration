@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :carrier do
+  factory :participant do
     
   end
 end
