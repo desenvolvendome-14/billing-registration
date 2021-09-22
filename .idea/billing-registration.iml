@@ -67,6 +67,7 @@
     <orderEntry type="library" scope="PROVIDED" name="globalid (v0.5.2, RVM: ruby-3.0.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="i18n (v1.8.10, RVM: ruby-3.0.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ice_nine (v0.11.2, RVM: ruby-3.0.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="jbuilder (v2.11.2, RVM: ruby-3.0.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="kwalify (v0.7.2, RVM: ruby-3.0.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="launchy (v2.5.0, RVM: ruby-3.0.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="listen (v3.7.0, RVM: ruby-3.0.2) [gem]" level="application" />
@@ -145,6 +146,7 @@
         <option value="factory_bot:model" />
         <option value="generator" />
         <option value="integration_test" />
+        <option value="jbuilder" />
         <option value="job" />
         <option value="mailbox" />
         <option value="mailer" />
@@ -197,6 +199,7 @@
         <option value="factory_bot:model" />
         <option value="generator" />
         <option value="integration_test" />
+        <option value="jbuilder" />
         <option value="job" />
         <option value="mailbox" />
         <option value="mailer" />
