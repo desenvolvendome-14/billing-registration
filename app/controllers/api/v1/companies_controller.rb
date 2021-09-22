@@ -1,11 +1,11 @@
 module Api
   module V1
     class CompaniesController < ApplicationController
-      # POST /company
+      # POST api/v1/company
       def create
         @company = Company.create(company_params)
         if @company.save
-          render json: CompanyRepresenter.new(@company).as_json, status: :created
+          render :create, status: :created
         else
           render json: @company.errors, status: :unprocessable_entity
         end
