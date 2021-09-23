@@ -4,6 +4,7 @@ class Address < ApplicationRecord
   belongs_to :seller
   belongs_to :supplier
   belongs_to :bank
+  belongs_to :company
 
   validates :zip_code, presence: true
   validates :state, presence: true
