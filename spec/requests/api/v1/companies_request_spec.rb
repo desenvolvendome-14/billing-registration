@@ -11,11 +11,11 @@ RSpec.describe 'Api::V1::Companies', type: :request do
       before { post '/api/v1/companies', params: valid_params }
 
       it 'creates a company' do
-        expect(json["company"]["company_name"]).to eq('Walt Disney')
-        expect(json["company"]["state_registration"]).to eq('192389988')
-        expect(json["company"]["cnpj"]).to eq('11.111.111/0001-01')
-        expect(json["company"]["fantasy_name"]).to eq('Walt Disney')
-        expect(json["company"]["business_phone"]).to eq('88 8888-8888')
+        expect(body_json["company"]["company_name"]).to eq('Walt Disney')
+        expect(body_json["company"]["state_registration"]).to eq('192389988')
+        expect(body_json["company"]["cnpj"]).to eq('11.111.111/0001-01')
+        expect(body_json["company"]["fantasy_name"]).to eq('Walt Disney')
+        expect(body_json["company"]["business_phone"]).to eq('88 8888-8888')
       end
 
       it 'returns status code 201' do
