@@ -29,3 +29,5 @@
 
 .idea/*
 .idea
+
+coverage/*
