@@ -28,3 +28,4 @@
 /config/database.yml
 
 .idea/*
+.idea
