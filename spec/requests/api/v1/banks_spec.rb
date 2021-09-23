@@ -9,8 +9,8 @@ RSpec.describe "Api::V1::Banks", type: :request do
       before { post '/api/v1/banks', params: valid_params }
 
       it 'create a bank' do
-        expect(json['code']).to eq(260)
-        expect(json['description']).to eq('Nu Payments')
+        expect(body_json['code']).to eq(260)
+        expect(body_json['description']).to eq('Nu Payments')
       end
 
       it 'returns status code 201' do
