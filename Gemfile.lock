@@ -110,7 +110,7 @@ GEM
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
     ice_nine (0.11.2)
-    jbuilder (2.10.2)
+    jbuilder (2.11.2)
       activesupport (>= 5.0.0)
     kwalify (0.7.2)
     launchy (2.5.0)
@@ -268,7 +268,7 @@ DEPENDENCIES
   database_cleaner
   factory_bot_rails
   faker
-  jbuilder (~> 2.10.1)
+  jbuilder (~> 2.7)
   listen (~> 3.3)
   pg (~> 1.1)
   puma (~> 5.0)

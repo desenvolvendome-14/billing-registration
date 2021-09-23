@@ -9,6 +9,15 @@
       <change beforePath="$PROJECT_DIR$/.idea/billing-registration.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/billing-registration.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spec/requests/api/v1/participants_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/requests/api/v1/participants_spec.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/api/v1/companies/create.json.jbuilder" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/billing-registration.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/billing-registration.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/api/v1/companies_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/api/v1/companies_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/rails_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/rails_helper.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/requests/api/v1/company_request_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/requests/api/v1/companies_request_spec.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +32,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="release/v0.3" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
@@ -48,10 +62,16 @@
                   <RecentBranch>
                     <option name="branchName" value="feat/models-persons" />
                     <option name="lastUsedInstant" value="1631738673" />
+                    <option name="branchName" value="feature/add-company" />
+                    <option name="lastUsedInstant" value="1632268280" />
                   </RecentBranch>
                   <RecentBranch>
-                    <option name="branchName" value="feat/models-participants" />
-                    <option name="lastUsedInstant" value="1631737309" />
+                    <option name="branchName" value="release/v0.3" />
+                    <option name="lastUsedInstant" value="1632264220" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="develop" />
+                    <option name="lastUsedInstant" value="1632264173" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="main" />
@@ -104,6 +124,9 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/views/api/v1/participants" />
       <recent name="$PROJECT_DIR$/app/views/api/v1" />
+      <recent name="$PROJECT_DIR$/app/views/api/v1" />
+      <recent name="$PROJECT_DIR$/app/views" />
+      <recent name="$PROJECT_DIR$/app/views/api" />
       <recent name="$PROJECT_DIR$/spec/requests/api/v1" />
       <recent name="$PROJECT_DIR$/app/controllers/api/v1" />
     </key>
@@ -447,6 +470,7 @@
       <workItem from="1632249408705" duration="3485000" />
       <workItem from="1632258836498" duration="17000" />
       <workItem from="1632309707333" duration="5622000" />
+      <workItem from="1632170064873" duration="610000" />
     </task>
     <task id="LOCAL-00001" summary="refactor: remove address from companies">
       <created>1631811605588</created>
@@ -497,7 +521,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631812340823</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="support: .idea files and schema.rb">
+      <created>1631812704834</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1631812704834</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -523,7 +554,8 @@
     <MESSAGE value="feat: adding the rest of data to representer" />
     <MESSAGE value="feat: adding companies create route" />
     <MESSAGE value="feat: companies create request spec" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: companies create request spec" />
+    <MESSAGE value="support: .idea files and schema.rb" />
+    <option name="LAST_COMMIT_MESSAGE" value="support: .idea files and schema.rb" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/billing_registration@Api__V1__Participants_GET__participants__id__return_requested_Pa.rcov" NAME="Api::V1::Participants GET /participants/:id  return requested Pa Coverage Results" MODIFIED="1632311709783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="billing-registration" />
@@ -537,5 +569,6 @@
     <SUITE FILE_PATH="coverage/billing_registration@Api__V1__Participants_DELETE__participants.rcov" NAME="Api::V1::Participants DELETE /participants Coverage Results" MODIFIED="1632314662269" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="billing-registration" />
     <SUITE FILE_PATH="coverage/billing_registration@Api__V1__Participants_POST__participants.rcov" NAME="Api::V1::Participants POST /participants Coverage Results" MODIFIED="1632311151026" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="billing-registration" />
     <SUITE FILE_PATH="coverage/billing_registration@Development__billing_registration.rcov" NAME="Development: billing-registration Coverage Results" MODIFIED="1631734837517" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="billing-registration" />
+    <SUITE FILE_PATH="coverage/billing_registration@Development__billing_registration.rcov" NAME="Development: billing-registration Coverage Results" MODIFIED="1632273083805" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="billing-registration" />
   </component>
 </project>
