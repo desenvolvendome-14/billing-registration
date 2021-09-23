@@ -3,6 +3,7 @@ class Address < ApplicationRecord
   belongs_to :carrier
   belongs_to :seller
   belongs_to :supplier
+  belongs_to :bank
 
   validates :zip_code, presence: true
   validates :state, presence: true
