@@ -26,7 +26,6 @@ gem 'bootsnap', '>= 1.4.4', require: false
 # gem 'rack-cors'
 
 # Rendering
-gem 'jbuilder', '~> 2.10.1'
 
 gem 'rubocop-rails'
 
