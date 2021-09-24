@@ -10,7 +10,7 @@ RSpec.describe 'Api::V1::CostCenters', type: :request do
       before { post '/api/v1/cost_centers', params: valid_params }
 
       it 'creates a cost center' do
-        expect(body_json["cost_center"]["description"]).to eq('Walt Disney')
+        expect(body_json["cost_center"]["description"]).to eq('This is a cost center')
       end
 
       it 'returns status code 201' do
