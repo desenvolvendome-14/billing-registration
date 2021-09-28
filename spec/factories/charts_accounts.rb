@@ -3,6 +3,6 @@
 FactoryBot.define do
   factory :charts_account do
     description { "Matéria-Prima" }
-    internal_code { 99.to_i }
+    internal_code { 99 }
   end
 end
