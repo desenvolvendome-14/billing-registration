@@ -11,6 +11,11 @@ module Api
         end
       end
 
+      def index
+        @companies = Company.all
+        render :index
+      end
+
       private
       def company_params
         params.permit(:company_name, :state_registration, :cnpj, :fantasy_name, :business_phone)
