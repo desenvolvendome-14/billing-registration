@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'Api::V1::Companies', type: :request do
 
+  let!(:companies) { create_list(:company, 5) }
+
   describe 'POST /api/v1/companies' do
     # valid company
     let(:valid_params) { { company_name: 'Walt Disney', state_registration: '192389988',
@@ -21,6 +23,19 @@ RSpec.describe 'Api::V1::Companies', type: :request do
       it 'returns status code 201' do
         expect(response).to have_http_status(201)
       end
+    end
+  end
+
+  describe 'GET /api/v1/companies' do
+    before { get '/api/v1/companies' }
+
+    it 'returns companies' do
+      expect(body_json["companies"]).not_to be_empty
+      expect(body_json["companies"].size).to eq(5)
+    end
+
+    it 'returns status code 200' do
+      expect(response).to have_http_status(200)
     end
   end
 end
