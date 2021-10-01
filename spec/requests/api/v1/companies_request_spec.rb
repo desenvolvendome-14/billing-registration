@@ -27,15 +27,29 @@ RSpec.describe 'Api::V1::Companies', type: :request do
   end
 
   describe 'GET /api/v1/companies' do
-    before { get '/api/v1/companies' }
+    context 'with no filters' do
+      before { get '/api/v1/companies' }
 
-    it 'returns companies' do
-      expect(body_json["companies"]).not_to be_empty
-      expect(body_json["companies"].size).to eq(5)
+      it 'returns companies' do
+        expect(body_json["companies"]).not_to be_empty
+        expect(body_json["companies"].size).to eq(5)
+      end
+
+      it 'returns status code 200' do
+        expect(response).to have_http_status(200)
+      end
     end
 
-    it 'returns status code 200' do
-      expect(response).to have_http_status(200)
+    context 'with filters' do
+      let!(:company) { create(:company, company_name: "teste", cnpj: "11.111.111/0001-11", fantasy_name: "teste fantasia") }
+
+      before { get "/api/v1/companies?company_name=#{company.company_name}&cnpj=#{company.cnpj}&fantasy_name=#{company.fantasy_name}" }
+
+      it 'returns filtered companies' do
+
+        expect(body_json["companies"]).not_to be_empty
+        expect(body_json["companies"].size).to eq(1)
+      end
     end
   end
 end
