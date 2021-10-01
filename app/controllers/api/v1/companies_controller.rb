@@ -13,6 +13,10 @@ module Api
 
       def index
         @companies = Company.all
+        @companies = @companies.where(company_name: params[:company_name]) if params[:company_name]
+        @companies = @companies.where(cnpj: params[:cnpj]) if params[:cnpj]
+        @companies = @companies.where(business_name: params[:business_name]) if params[:business_name]
+
         render :index
       end
 
