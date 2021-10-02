@@ -11,6 +11,12 @@ module Api
         end
       end
 
+      def index
+        @cost_centers = CostCenter.all
+
+        render :index
+      end
+
       private
       def cost_center_params
         params.permit(:description)
