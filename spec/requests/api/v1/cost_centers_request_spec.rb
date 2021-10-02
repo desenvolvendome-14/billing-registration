@@ -35,5 +35,17 @@ RSpec.describe 'Api::V1::CostCenters', type: :request do
       end
     end
 
+    context 'with filters' do
+      let!(:cost_center) { create(:cost_center, description: "teste" )}
+
+      before { get "/api/v1/cost_centers?description=#{cost_center.description}" }
+
+      it 'returns filtered cost centers' do
+
+        expect(body_json["cost_centers"]).not_to be_empty
+        expect(body_json["cost_centers"].size).to eq(1)
+      end
+    end
+
   end
 end
