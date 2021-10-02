@@ -13,6 +13,7 @@ module Api
 
       def index
         @cost_centers = CostCenter.all
+        @cost_centers = @cost_centers.where(description: params[:description]) if params[:description]
 
         render :index
       end
