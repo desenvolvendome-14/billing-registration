@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'Api::V1::CostCenters', type: :request do
 
+  let!(:cost_centers) { create_list(:cost_center, 5) }
+
   describe 'POST /api/v1/cost_centers' do
     # valid cost center
     let(:valid_params) { { description: 'This is a cost center'} }
