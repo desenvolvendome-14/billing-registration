@@ -74,4 +74,27 @@ RSpec.describe 'Api::V1::Companies', type: :request do
       end
     end
   end
+
+  describe 'PUT /companies/:id' do
+    let(:valid_attributes) { { company_name: 'Saffron Swords' } }
+    before { put "/api/v1/companies/#{company_id}", params: valid_attributes }
+    context 'when company exists' do
+      it 'returns status code 204' do
+        expect(response).to have_http_status(204)
+      end
+      it 'updates the company' do
+        updated_item = Company.find(company_id)
+        expect(updated_item.company_name).to match(/Saffron Swords/)
+      end
+    end
+    context 'when the company does not exist' do
+      let(:company_id) { 0 }
+      it 'returns status code 404' do
+        expect(response).to have_http_status(404)
+      end
+      it 'returns a not found message' do
+        expect(response.body).to include("Couldn't find Company with 'id'=0")
+      end
+    end
+  end
 end
