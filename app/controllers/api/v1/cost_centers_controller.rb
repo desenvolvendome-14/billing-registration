@@ -1,7 +1,7 @@
 module Api
   module V1
     class CostCentersController < ApplicationController
-      before_action :set_cost_center, only: %w[show]
+      before_action :set_cost_center, only: %w[show update]
       # POST api/v1/cost center
       def create
         @cost_center = CostCenter.create(cost_center_params)
@@ -21,6 +21,11 @@ module Api
 
       def show
         render :show
+      end
+
+      def update
+        @cost_center.update(cost_center_params)
+        head :no_content
       end
 
       private

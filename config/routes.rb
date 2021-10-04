@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :banks, only: %i[ create ]
       resources :companies, format: "json"
-      resources :cost_centers, only: %i[ create index show ], format: "json"
+      resources :cost_centers, only: %i[ create index show update], format: "json"
     end
   end
 
