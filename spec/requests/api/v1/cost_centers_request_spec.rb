@@ -69,4 +69,27 @@ RSpec.describe 'Api::V1::CostCenters', type: :request do
       end
     end
   end
+
+  describe 'PUT /cost_centers/:id' do
+    let(:valid_attributes) { { description: 'Saffron Swords' } }
+    before { put "/api/v1/cost_centers/#{cost_center_id}", params: valid_attributes }
+    context 'when cost center exists' do
+      it 'returns status code 204' do
+        expect(response).to have_http_status(204)
+      end
+      it 'updates the cost center' do
+        updated_item = CostCenter.find(cost_center_id)
+        expect(updated_item.description).to match(/Saffron Swords/)
+      end
+    end
+    context 'when the cost center does not exist' do
+      let(:cost_center_id) { 0 }
+      it 'returns status code 404' do
+        expect(response).to have_http_status(404)
+      end
+      it 'returns a not found message' do
+        expect(response.body).to include("Couldn't find CostCenter with 'id'=0")
+      end
+    end
+  end
 end
