@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Api::V1::Companies', type: :request do
 
   let!(:companies) { create_list(:company, 5) }
+  let!(:company_id) { companies.first.id }
 
   describe 'POST /api/v1/companies' do
     # valid company
@@ -41,7 +42,7 @@ RSpec.describe 'Api::V1::Companies', type: :request do
     end
 
     context 'with filters' do
-      let!(:company) { create(:company, company_name: "teste", cnpj: "11.111.111/0001-11", fantasy_name: "teste fantasia") }
+      let(:company) { create(:company, company_name: "teste", cnpj: "11.111.111/0001-11", fantasy_name: "teste fantasia") }
 
       before { get "/api/v1/companies?company_name=#{company.company_name}&cnpj=#{company.cnpj}&fantasy_name=#{company.fantasy_name}" }
 
@@ -50,6 +51,57 @@ RSpec.describe 'Api::V1::Companies', type: :request do
         expect(body_json["companies"]).not_to be_empty
         expect(body_json["companies"].size).to eq(1)
       end
+    end
+  end
+
+  describe 'GET /companies/:id' do
+    before { get "/api/v1/companies/#{company_id}" }
+    context 'when company exists' do
+      it 'returns status code 200' do
+        expect(response).to have_http_status(200)
+      end
+      it 'returns the company item' do
+        expect(body_json['company']['id']).to eq(company_id)
+      end
+    end
+    context 'when company does not exist' do
+      let(:company_id) { 0 }
+      it 'returns status code 404' do
+        expect(response).to have_http_status(404)
+      end
+      it 'returns a not found message' do
+        expect(response.body).to include("Couldn't find Company with 'id'=0")
+      end
+    end
+  end
+
+  describe 'PUT /companies/:id' do
+    let(:valid_attributes) { { company_name: 'Saffron Swords' } }
+    before { put "/api/v1/companies/#{company_id}", params: valid_attributes }
+    context 'when company exists' do
+      it 'returns status code 204' do
+        expect(response).to have_http_status(204)
+      end
+      it 'updates the company' do
+        updated_item = Company.find(company_id)
+        expect(updated_item.company_name).to match(/Saffron Swords/)
+      end
+    end
+    context 'when the company does not exist' do
+      let(:company_id) { 0 }
+      it 'returns status code 404' do
+        expect(response).to have_http_status(404)
+      end
+      it 'returns a not found message' do
+        expect(response.body).to include("Couldn't find Company with 'id'=0")
+      end
+    end
+  end
+
+  describe 'DELETE /companies/:id' do
+    before { delete "/api/v1/companies/#{company_id}" }
+    it 'returns status code 204' do
+      expect(response).to have_http_status(204)
     end
   end
 end
