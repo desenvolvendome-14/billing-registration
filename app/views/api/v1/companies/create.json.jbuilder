@@ -1,4 +1,5 @@
 json.company do
+  json.id                                 @company.id
   json.company_name                       @company.company_name
   json.cnpj                               @company.cnpj
   json.state_registration                 @company.state_registration
