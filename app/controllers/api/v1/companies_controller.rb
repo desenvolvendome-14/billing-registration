@@ -1,7 +1,7 @@
 module Api
   module V1
     class CompaniesController < ApplicationController
-      before_action :set_company, only: %w[show]
+      before_action :set_company, only: %w[show update]
       # POST api/v1/company
       def create
         @company = Company.create(company_params)
@@ -23,6 +23,11 @@ module Api
 
       def show
         render :show
+      end
+
+      def update
+        @company.update(company_params)
+        head :no_content
       end
 
       private
