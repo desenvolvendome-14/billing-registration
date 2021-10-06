@@ -21,7 +21,7 @@ module Api
         @charts_account = ChartsAccount.new(charts_account_params)
 
         if @charts_account.save
-          render :show, status: :created, location: @charts_account
+          render :show, status: :created
         else
           render json: @charts_account.errors, status: :unprocessable_entity
         end
@@ -31,7 +31,7 @@ module Api
       # PATCH/PUT /charts_accounts/1.json
       def update
         if @charts_account.update(charts_account_params)
-          render :show, status: :ok, location: @charts_account
+          render json: @charts_account, status: :ok
         else
           render json: @charts_account.errors, status: :unprocessable_entity
         end
