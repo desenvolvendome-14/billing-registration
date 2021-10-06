@@ -8,8 +8,7 @@ RSpec.describe "/api/v1/charts_accounts/", type: :request do
 
   let(:invalid_attributes) do
     { description: "",
-      internal_code: 0
-    }
+      internal_code: 0 }
   end
 
   let(:valid_headers) do
@@ -24,7 +23,6 @@ RSpec.describe "/api/v1/charts_accounts/", type: :request do
     end
   end
 
-
   describe "GET /show" do
     it "renders a successful response" do
       get api_v1_charts_account_url(charts_account), as: :json
@@ -33,7 +31,6 @@ RSpec.describe "/api/v1/charts_accounts/", type: :request do
   end
 
   describe "POST /create" do
-
     before { post  api_v1_charts_accounts_url, as: :json, params: { charts_account: valid_attributes } }
 
     context "with valid parameters" do
@@ -55,11 +52,11 @@ RSpec.describe "/api/v1/charts_accounts/", type: :request do
 
   describe "PATCH /update" do
     context "with valid parameters" do
-      let(:new_attributes) {
+      let(:new_attributes) do
         {
           description: "Luciano 2", internal_code: 1000
         }
-      }
+      end
 
       it "updates the requested charts_account" do
         charts_account = ChartsAccount.create! valid_attributes
@@ -72,7 +69,7 @@ RSpec.describe "/api/v1/charts_accounts/", type: :request do
 
     context "with invalid parameters" do
       it "renders a JSON response with errors for the charts_account" do
-        #charts_account = ChartsAccount.create! valid_attributes
+        # charts_account = ChartsAccount.create! valid_attributes
         patch api_v1_charts_account_url(charts_account),
               params: { charts_account: invalid_attributes }, headers: valid_headers, as: :json
         expect(response).to have_http_status(:unprocessable_entity)
