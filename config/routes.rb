@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       resources :banks, only: %i[ create ]
       resources :companies, format: "json"
       resources :cost_centers, format: "json"
+      resources :charts_accounts, format: "json"
     end
   end
 
