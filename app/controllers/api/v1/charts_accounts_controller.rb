@@ -9,6 +9,8 @@ module Api
       # GET /charts_accounts.json
       def index
         @charts_accounts = ChartsAccount.all
+        @charts_accounts = @charts_accounts.where(description: params[:description]) if params[:description]
+        @charts_accounts = @charts_accounts.where(internal_code: params[:internal_code]) if params[:internal_code]
       end
 
       # GET /charts_accounts/1
