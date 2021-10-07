@@ -21,6 +21,17 @@ RSpec.describe "/api/v1/charts_accounts/", type: :request do
       get api_v1_charts_accounts_url, headers: valid_headers, as: :json
       expect(response).to be_successful
     end
+
+    context 'with filters' do
+      let(:charts_account) { create(:charts_account, description: "teste", internal_code: 1 )}
+
+      before { get "/api/v1/charts_accounts?description=#{charts_account.description}" }
+
+      it 'returns filtered cost centers' do
+        expect(charts_account.description).to eq("teste")
+        expect(charts_account.internal_code.to_s).to eq("1")
+      end
+    end
   end
 
   describe "GET /show" do
