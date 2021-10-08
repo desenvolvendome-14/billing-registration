@@ -1,6 +1,7 @@
 module Api
   module V1
     class CompaniesController < ApplicationController
+      before_action :set_company, only: %w[show update destroy]
       # POST api/v1/company
       def create
         @company = Company.create(company_params)
@@ -23,6 +24,10 @@ module Api
       private
       def company_params
         params.permit(:company_name, :state_registration, :cnpj, :fantasy_name, :business_phone)
+      end
+
+      def set_company
+        @company = Company.find(params[:id])
       end
     end
   end

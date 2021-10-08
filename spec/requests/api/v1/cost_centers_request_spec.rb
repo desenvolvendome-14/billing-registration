@@ -46,6 +46,5 @@ RSpec.describe 'Api::V1::CostCenters', type: :request do
         expect(body_json["cost_centers"].size).to eq(1)
       end
     end
-
   end
 end
