@@ -26,6 +26,11 @@ module Api
         render json: @participant.errors, status: :unprocessable_entity
       end
 
+      def search
+        @params = params[:name, :cpf_cnpj, :fantasy_name, :person_type, :client_type]
+        @participant = Participant.where "name like ?", "%#{@params}%"
+      end
+
       private
 
       def load_participant
