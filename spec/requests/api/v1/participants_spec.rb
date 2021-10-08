@@ -14,6 +14,17 @@ RSpec.describe "Api::V1::Participants", type: :request do
       get url
       expect(response).to have_http_status(:ok)
     end
+
+    context 'with filters' do
+      let!(:participant) { create(:participant) }
+
+      before { get "/api/participants?name=#{participant.name}" }
+
+      it 'returns filtered participant' do
+        expect(body_json["participant"]).not_to be_empty
+        expect(body_json["participant"].size).to eq(1)
+      end
+    end
   end
 
   describe "POST /participants" do
