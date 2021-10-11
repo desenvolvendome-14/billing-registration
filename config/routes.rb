@@ -5,13 +5,13 @@ Rails.application.routes.draw do
       resources :banks, only: %i[ create ]
       resources :companies, only: %i[ create index ], format: "json"
       resources :cost_centers, only: %i[ create index ], format: "json"
-    end
-  end
+      resources :charts_accounts, format: "json"
 
-  namespace :api do
-    namespace :v1 do
-      resources :participants, format: "json"
+      resources :participants, format: "json" do
+        collection do
+          get :search
+        end
+      end
     end
   end
-  
 end
