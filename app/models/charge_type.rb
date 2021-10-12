@@ -1,0 +1,2 @@
+class ChargeType < ApplicationRecord
+end

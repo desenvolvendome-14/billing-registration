@@ -3,10 +3,11 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :banks, only: %i[ create index destroy ], format: "json"
-      resources :companies, only: %i[ create index ], format: "json"
-      resources :cost_centers, only: %i[ create index ], format: "json"
+      resources :companies, format: "json"
+      resources :cost_centers, format: "json"
       resources :charts_accounts, format: "json"
       resources :document_types, format: "json"
+      resources :charge_types, format: "json"
 
       resources :participants, format: "json" do
         collection do
