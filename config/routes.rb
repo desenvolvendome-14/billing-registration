@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       resources :companies, only: %i[ create index ], format: "json"
       resources :cost_centers, only: %i[ create index ], format: "json"
       resources :charts_accounts, format: "json"
+      resources :document_types, format: "json"
 
       resources :participants, format: "json" do
         collection do
