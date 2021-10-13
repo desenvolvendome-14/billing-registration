@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Api::V1::ChargeTypes', type: :request do
 
   let!(:charge_types) { create_list(:charge_type, 5) }
+  let(:charge_type_id) { charge_types.first.id }
 
   describe 'POST /api/v1/charge_types' do
     # valid charge type
@@ -45,6 +46,35 @@ RSpec.describe 'Api::V1::ChargeTypes', type: :request do
         expect(body_json["charge_types"]).not_to be_empty
         expect(body_json["charge_types"].size).to eq(1)
       end
+    end
+  end
+
+  describe 'PUT /charge_types/:id' do
+    let(:valid_attributes) { { description: 'Saffron Swords' } }
+    before { put "/api/v1/charge_types/#{charge_type_id}", params: valid_attributes }
+    context 'when book exists' do
+      it 'returns status code 204' do
+        expect(response).to have_http_status(204)
+      end
+      it 'updates the book' do
+        updated_item = ChargeType.find(charge_type_id)
+        expect(updated_item.description).to match(/Saffron Swords/)
+      end
+    end
+    context 'when the book does not exist' do
+      let(:charge_type_id) { 0 }
+      it 'returns status code 404' do
+        expect(response).to have_http_status(404)
+      end
+      it 'returns a not found message' do
+        expect(response.body).to include("Couldn't find ChargeType with 'id'=0")
+      end
+    end
+  end
+  describe 'DELETE /charge_types/:id' do
+    before { delete "/api/v1/charge_types/#{charge_type_id}" }
+    it 'returns status code 204' do
+      expect(response).to have_http_status(204)
     end
   end
 end
