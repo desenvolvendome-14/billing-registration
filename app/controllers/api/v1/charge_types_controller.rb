@@ -26,7 +26,7 @@ module Api
         @charge_type.update(charge_type_params)
         head :no_content
       end
-      # DELETE /books/:id
+      # DELETE /charge_types/:id
       def destroy
         @charge_type.destroy
         head :no_content
