@@ -49,6 +49,15 @@ RSpec.describe 'Api::V1::ChargeTypes', type: :request do
     end
   end
 
+  describe "GET /charge_types/:id" do
+    let(:charge_type) { create(:charge_type) }
+
+    it "renders a successful response" do
+      get api_v1_charge_type_url(charge_type), as: :json
+      expect(response).to be_successful
+    end
+  end
+
   describe 'PUT /charge_types/:id' do
     let(:valid_attributes) { { description: 'Saffron Swords' } }
     before { put "/api/v1/charge_types/#{charge_type_id}", params: valid_attributes }
