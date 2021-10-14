@@ -9,6 +9,11 @@ module Api
       # GET /bank_accounts.json
       def index
         @bank_accounts = BankAccount.all
+        @bank_accounts = @bank_accounts.where(description: params[:description]) if params[:description]
+        @bank_accounts = @bank_accounts.where(city: params[:city]) if params[:city]
+        @bank_accounts = @bank_accounts.where(agency: params[:agency]) if params[:agency]
+        @bank_accounts = @bank_accounts.where(account: params[:account]) if params[:account]
+        @bank_accounts = @bank_accounts.where(assignor: params[:assignor]) if params[:assignor]
       end
 
       # GET /bank_accounts/1
