@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       resources :charts_accounts, format: "json"
       resources :document_types, format: "json"
       resources :charge_types, format: "json"
-      resources :account_wallets, only: %i[ create index destroy ], format: "json"
+      resources :account_wallets, format: "json"
       
       resources :participants, format: "json" do
         collection do

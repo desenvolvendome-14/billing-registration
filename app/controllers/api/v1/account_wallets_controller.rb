@@ -17,6 +17,14 @@ module Api
         end
       end
 
+      def update
+        if @account_wallet.update(account_wallet_params)
+          render :show, status: :ok
+        else
+          render json: @account_wallet.errors, status: :unprocessable_entity
+        end
+      end
+
       def show; end
 
       def destroy
