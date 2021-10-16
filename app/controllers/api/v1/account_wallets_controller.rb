@@ -4,7 +4,7 @@ module Api
       before_action :account_wallet, only: [:show, :update, :destroy]
 
       def index
-        @account_wallet = AccountWalletsFetcher.new(account_wallet_params).fetch
+        @account_wallets = AccountWalletsFetcher.new(account_wallet_params).fetch
       end
 
       def create
