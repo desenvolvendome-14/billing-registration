@@ -21,6 +21,16 @@ module Api
         render :index
       end
 
+      def update
+        @company.update(company_params)
+        head :no_content
+      end
+      # DELETE /companies/:id
+      def destroy
+        @company.destroy
+        head :no_content
+      end
+
       private
       def company_params
         params.permit(:company_name, :state_registration, :cnpj, :fantasy_name, :business_phone)

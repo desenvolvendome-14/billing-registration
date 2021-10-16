@@ -9,7 +9,8 @@ Rails.application.routes.draw do
       resources :document_types, format: "json"
       resources :charge_types, format: "json"
       resources :account_wallets, format: "json"
-      
+      resources :bank_accounts, format: "json"
+
       resources :participants, format: "json" do
         collection do
           get :search

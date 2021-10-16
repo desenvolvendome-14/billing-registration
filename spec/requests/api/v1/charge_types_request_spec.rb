@@ -61,16 +61,16 @@ RSpec.describe 'Api::V1::ChargeTypes', type: :request do
   describe 'PUT /charge_types/:id' do
     let(:valid_attributes) { { description: 'Saffron Swords' } }
     before { put "/api/v1/charge_types/#{charge_type_id}", params: valid_attributes }
-    context 'when book exists' do
+    context 'when charge type exists' do
       it 'returns status code 204' do
         expect(response).to have_http_status(204)
       end
-      it 'updates the book' do
+      it 'updates the charge type' do
         updated_item = ChargeType.find(charge_type_id)
         expect(updated_item.description).to match(/Saffron Swords/)
       end
     end
-    context 'when the book does not exist' do
+    context 'when the charge type does not exist' do
       let(:charge_type_id) { 0 }
       it 'returns status code 404' do
         expect(response).to have_http_status(404)
