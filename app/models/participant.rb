@@ -7,4 +7,5 @@ class Participant < ApplicationRecord
 
   enum person_type: {legal_person: 1, physical_person: 2, foreign:3}
   enum client_type: {customer: 1, supplier: 2, seller:3, carrier:4}
+  has_many :contacts
 end
