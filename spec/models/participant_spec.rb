@@ -12,5 +12,7 @@ RSpec.describe Participant, type: :model do
   it { is_expected.to define_enum_for(:client_type).with_values({ customer: 1, supplier: 2, seller: 3, carrier: 4}) }
 
   it { should validate_length_of(:name).is_at_least(3) }
+
+  it { should have_many(:contacts) }
 end
 
