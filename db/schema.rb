@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_13_084912) do
+ActiveRecord::Schema.define(version: 2021_10_28_093335) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "account_wallets", force: :cascade do |t|
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "addresses", force: :cascade do |t|
     t.string "zip_code"
@@ -47,6 +53,8 @@ ActiveRecord::Schema.define(version: 2021_10_13_084912) do
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "bank_account_id", null: false
+    t.index ["bank_account_id"], name: "index_banks_on_bank_account_id"
   end
 
   create_table "charge_types", force: :cascade do |t|
@@ -106,4 +114,5 @@ ActiveRecord::Schema.define(version: 2021_10_13_084912) do
 
   add_foreign_key "addresses", "banks"
   add_foreign_key "addresses", "companies"
+  add_foreign_key "banks", "bank_accounts"
 end
