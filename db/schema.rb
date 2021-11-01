@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_13_084912) do
+ActiveRecord::Schema.define(version: 2021_11_01_234552) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "account_wallets", force: :cascade do |t|
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "addresses", force: :cascade do |t|
     t.string "zip_code"
@@ -67,7 +73,6 @@ ActiveRecord::Schema.define(version: 2021_10_13_084912) do
     t.string "state_registration"
     t.string "company_name"
     t.string "fantasy_name"
-    t.string "business_phone"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
