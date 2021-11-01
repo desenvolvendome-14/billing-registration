@@ -7,8 +7,9 @@ RSpec.describe 'Api::V1::Companies', type: :request do
 
   describe 'POST /api/v1/companies' do
     # valid company
+    cnpj = CNPJ.generate
     let(:valid_params) { { company_name: 'Walt Disney', state_registration: '192389988',
-                                 cnpj: '11.111.111/0001-01', fantasy_name: 'Walt Disney', business_phone: '88 8888-8888'} }
+                                 cnpj: cnpj, fantasy_name: '', business_phone: '88 8888-8888'} }
 
     context 'when the request is valid' do
       before { post '/api/v1/companies', params: valid_params }
@@ -16,7 +17,7 @@ RSpec.describe 'Api::V1::Companies', type: :request do
       it 'creates a company' do
         expect(body_json["company"]["company_name"]).to eq('Walt Disney')
         expect(body_json["company"]["state_registration"]).to eq('192389988')
-        expect(body_json["company"]["cnpj"]).to eq('11.111.111/0001-01')
+        expect(body_json["company"]["cnpj"]).to eq(cnpj)
         expect(body_json["company"]["fantasy_name"]).to eq('Walt Disney')
         expect(body_json["company"]["business_phone"]).to eq('88 8888-8888')
       end
@@ -42,7 +43,7 @@ RSpec.describe 'Api::V1::Companies', type: :request do
     end
 
     context 'with filters' do
-      let!(:company) { create(:company, company_name: "teste", cnpj: "11.111.111/0001-11", fantasy_name: "teste fantasia") }
+      let!(:company) { create(:company, company_name: "teste", cnpj: CNPJ.generate, fantasy_name: "teste fantasia") }
 
       before { get "/api/v1/companies?company_name=#{company.company_name}&cnpj=#{company.cnpj}&fantasy_name=#{company.fantasy_name}" }
 
