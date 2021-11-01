@@ -9,7 +9,7 @@ RSpec.describe 'Api::V1::Companies', type: :request do
     # valid company
     cnpj = CNPJ.generate
     let(:valid_params) { { company_name: 'Walt Disney', state_registration: '192389988',
-                                 cnpj: cnpj, fantasy_name: '', business_phone: '88 8888-8888'} }
+                                 cnpj: cnpj, fantasy_name: ''} }
 
     context 'when the request is valid' do
       before { post '/api/v1/companies', params: valid_params }
@@ -19,7 +19,6 @@ RSpec.describe 'Api::V1::Companies', type: :request do
         expect(body_json["company"]["state_registration"]).to eq('192389988')
         expect(body_json["company"]["cnpj"]).to eq(cnpj)
         expect(body_json["company"]["fantasy_name"]).to eq('Walt Disney')
-        expect(body_json["company"]["business_phone"]).to eq('88 8888-8888')
       end
 
       it 'returns status code 201' do
