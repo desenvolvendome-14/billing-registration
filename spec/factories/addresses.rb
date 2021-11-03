@@ -6,6 +6,7 @@ FactoryBot.define do
     district { "MyString" }
     street { "MyString" }
     house_number { "MyString" }
+    complement { "MyString" }
     client { nil }
     carrier { nil }
     seller { nil }
