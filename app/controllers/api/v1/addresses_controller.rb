@@ -1,12 +1,13 @@
 module Api
   module V1
     class AddressesController < ApplicationController
-      before_action :set_address, only: %i[update]
-
+      before_action :set_address, only: %i[update, show]
 
       def index
         @addresses = Address.all
       end
+
+      def show; end
 
       def create
         @address = Address.new(address_params)
