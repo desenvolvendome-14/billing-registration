@@ -1,7 +1,7 @@
 module Api
   module V1
     class AddressesController < ApplicationController
-      before_action :set_address, only: %i[update, show]
+      before_action :set_address, only: %i[update, show, destroy]
 
       def index
         @addresses = Address.all
@@ -25,6 +25,10 @@ module Api
         else
           render json: @address.errors, status: :unprocessable_entity
         end
+      end
+
+      def destroy
+        @address.destroy
       end
 
       private
