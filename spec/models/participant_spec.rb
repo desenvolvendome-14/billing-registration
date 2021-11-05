@@ -16,12 +16,13 @@ RSpec.describe Participant, type: :model do
   it { should have_many(:addresses) }
 
   it "create participantes fantasy name null" do
-    participant = create(:participant, name: "Razão Social", fantasy_name: "", cpf_cnpj: "12345678901234",
+    cnpj = CNPJ.generate
+    participant = create(:participant, name: "Razão Social", fantasy_name: "", cpf_cnpj: cnpj,
                          person_type: 1,  client_type: 1, state_registration: "9" )
 
     expect(participant.name).to eq "Razão Social"
     expect(participant.fantasy_name).to eq "Razão Social"
-    expect(participant.cpf_cnpj).to eq "12345678901234"
+    expect(participant.cpf_cnpj).to eq cnpj
     expect(participant.person_type).to eq "legal_person"
     expect(participant.client_type).to eq  "customer"
     expect(participant.state_registration).to eq "9"
