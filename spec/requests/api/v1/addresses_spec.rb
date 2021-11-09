@@ -104,7 +104,4 @@ RSpec.describe "/api/v1/address/", type: :request do
     end
   end
 
-
-
-
 end
