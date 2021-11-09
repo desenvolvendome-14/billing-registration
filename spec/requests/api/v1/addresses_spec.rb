@@ -62,6 +62,41 @@ RSpec.describe "/api/v1/address/", type: :request do
     end
   end
 
+  describe "PATCH /update" do
+    context "with valid parameters" do
+      let(:new_attributes) do
+        {
+          zip_code: "16200203", state: "SP", city: "Birigui", district: "Vila Angélica",
+          street: "Avenida São Francisco", house_number: "156", complement: "casa"
+        }
+      end
+
+      it "updates the requested charts_account" do
+        address = Address.create! valid_attributes
+        patch api_v1_address_url(address),
+              params: { address: new_attributes }, as: :json
+        address.reload
+        expect(address.zip_code).to eq("16200203")
+        expect(address.state).to eq("SP")
+        expect(address.city).to eq("Birigui")
+        expect(address.district).to eq("Vila Angélica")
+        expect(address.street).to eq("Avenida São Francisco")
+        expect(address.house_number).to eq("156")
+        expect(address.complement).to eq("casa")
+      end
+    end
+
+    context "with invalid parameters" do
+      it "renders a JSON response with errors for the charts_account" do
+        patch api_v1_address_url(address),
+              params: { address: invalid_attributes }, headers: valid_headers, as: :json
+        expect(response).to have_http_status(:unprocessable_entity)
+        expect(response.content_type).to include("application/json")
+      end
+    end
+  end
+
+
 
 
 end
