@@ -29,4 +29,13 @@ RSpec.describe "/api/v1/address/", type: :request do
       expect(response).to be_successful
     end
   end
+
+  describe "GET /show" do
+    it "renders a successful response" do
+      get api_v1_address_url(address), as: :json
+      expect(response).to be_successful
+    end
+  end
+
+
 end
