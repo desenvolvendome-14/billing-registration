@@ -7,6 +7,6 @@ FactoryBot.define do
     street { "Rua Maestro Antônio Guerra" }
     house_number { "39" }
     complement { "casa"}
-    participant_id { create(:participant) }
+    participant { create(:participant) }
   end
 end
