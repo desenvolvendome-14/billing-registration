@@ -37,5 +37,31 @@ RSpec.describe "/api/v1/address/", type: :request do
     end
   end
 
+  describe "POST /create" do
+    before { post  api_v1_addresses_url, as: :json, params: { address: valid_attributes } }
+
+    context "with valid parameters" do
+      it "creates a new addresss" do
+        expect(body_json["zip_code"]).to eq("16260000")
+        expect(body_json["state"]).to eq("SP")
+        expect(body_json["city"]).to eq("Coroados")
+        expect(body_json["district"]).to eq("Gentil Bernardes")
+        expect(body_json["street"]).to eq("Rua Maestro Antônio Guerra")
+        expect(body_json["house_number"]).to eq("39")
+        expect(body_json["complement"]).to eq("casa")
+      end
+    end
+
+    context "with invalid parameters" do
+      it "does not create a new Address" do
+        expect do
+          post api_v1_addresses_url,
+               params: { address: invalid_attributes }, as: :json
+        end.to change(Address.where(district: :district), :count).by(0)
+      end
+    end
+  end
+
+
 
 end
