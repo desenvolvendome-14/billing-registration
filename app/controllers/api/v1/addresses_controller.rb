@@ -1,7 +1,7 @@
 module Api
   module V1
     class AddressesController < ApplicationController
-      before_action :set_address, only: %i[update, show, destroy]
+      before_action :set_address, only: %i[update show destroy]
 
       def index
         @addresses = Address.all
