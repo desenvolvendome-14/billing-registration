@@ -15,7 +15,7 @@ module Api
         if @address.save
           render :show, status: :created
         else
-          render json: @address.erros, status: :unprocessable_entity
+          render json: @address.errors, status: :unprocessable_entity
         end
       end
 
