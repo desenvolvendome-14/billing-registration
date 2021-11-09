@@ -87,12 +87,20 @@ RSpec.describe "/api/v1/address/", type: :request do
     end
 
     context "with invalid parameters" do
-      it "renders a JSON response with errors for the charts_account" do
+      it "renders a JSON response with errors for the address" do
         patch api_v1_address_url(address),
               params: { address: invalid_attributes }, headers: valid_headers, as: :json
         expect(response).to have_http_status(:unprocessable_entity)
         expect(response.content_type).to include("application/json")
       end
+    end
+  end
+
+  describe "DELETE /destroy" do
+    it "destroys the requested address" do
+      expect do
+        delete api_v1_address_url(address), headers: valid_headers, as: :json
+      end.to change(Address, :count).by(0)
     end
   end
 
