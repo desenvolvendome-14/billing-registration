@@ -58,7 +58,7 @@ module Api
       # Only allow a list of trusted parameters through.
       def bank_account_params
         params.require(:bank_account).permit(:description, :city, :agency, :agency_digit, :account, :account_digit,
-                                             :assignor)
+                                             :assignor, :bank_id)
       end
     end
   end

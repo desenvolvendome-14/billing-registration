@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
- 
-ActiveRecord::Schema.define(version: 2021_11_01_234552) do
+ActiveRecord::Schema.define(version: 2021_11_10_004522) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +48,8 @@ ActiveRecord::Schema.define(version: 2021_11_01_234552) do
     t.string "assignor"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "bank_id", null: false
+    t.index ["bank_id"], name: "index_bank_accounts_on_bank_id"
   end
 
   create_table "banks", force: :cascade do |t|
@@ -118,5 +119,6 @@ ActiveRecord::Schema.define(version: 2021_11_01_234552) do
   add_foreign_key "addresses", "banks"
   add_foreign_key "addresses", "companies"
   add_foreign_key "addresses", "participants"
+  add_foreign_key "bank_accounts", "banks"
   add_foreign_key "contacts", "participants"
 end
