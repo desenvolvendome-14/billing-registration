@@ -120,6 +120,7 @@ ActiveRecord::Schema.define(version: 2021_11_01_234552) do
   add_foreign_key "addresses", "companies"
   add_foreign_key "banks", "bank_accounts"
   add_foreign_key "addresses", "participants"
+  add_foreign_key "banks", "bank_accounts"
   add_foreign_key "contacts", "participants"
 
 end
