@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
- 
 ActiveRecord::Schema.define(version: 2021_11_01_234552) do
 
   # These are extensions that must be enabled in order to support this database
@@ -56,6 +55,8 @@ ActiveRecord::Schema.define(version: 2021_11_01_234552) do
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "bank_account_id", null: false
+    t.index ["bank_account_id"], name: "index_banks_on_bank_account_id"
   end
 
   create_table "charge_types", force: :cascade do |t|
@@ -117,6 +118,8 @@ ActiveRecord::Schema.define(version: 2021_11_01_234552) do
 
   add_foreign_key "addresses", "banks"
   add_foreign_key "addresses", "companies"
+  add_foreign_key "banks", "bank_accounts"
   add_foreign_key "addresses", "participants"
   add_foreign_key "contacts", "participants"
+
 end
