@@ -3,8 +3,9 @@
 require "rails_helper"
 
 RSpec.describe "/api/v1/bank_accounts/", type: :request do
-  let(:bank_account) { create(:bank_account) }
-  let(:valid_attributes) { build(:bank_account).attributes }
+  let(:bank) { create(:bank) }
+  let(:bank_account) { create(:bank_account, bank_id: bank.id) }
+  let(:valid_attributes) { build(:bank_account, bank_id: bank.id).attributes }
 
   let(:invalid_attributes) do
     { description: "",
@@ -29,19 +30,19 @@ RSpec.describe "/api/v1/bank_accounts/", type: :request do
 
     context "with filters" do
       let(:bank_account_description) do
-        create(:bank_account, description: "teste", city: "Birigui", agency: "001", account: "999", assignor: "7777")
+        create(:bank_account, description: "teste", city: "Birigui", agency: "001", account: "999", assignor: "7777", bank_id: bank.id)
       end
       let(:bank_account_city) do
-        create(:bank_account, description: "teste", city: "Coroados", agency: "001", account: "999", assignor: "7777")
+        create(:bank_account, description: "teste", city: "Coroados", agency: "001", account: "999", assignor: "7777", bank_id: bank.id)
       end
       let(:bank_account_agency) do
-        create(:bank_account, description: "teste", city: "Birigui", agency: "012", account: "999", assignor: "7777")
+        create(:bank_account, description: "teste", city: "Birigui", agency: "012", account: "999", assignor: "7777", bank_id: bank.id)
       end
       let(:bank_account_account) do
-        create(:bank_account, description: "teste", city: "Birigui", agency: "001", account: "777", assignor: "7777")
+        create(:bank_account, description: "teste", city: "Birigui", agency: "001", account: "777", assignor: "7777", bank_id: bank.id)
       end
       let(:bank_account_assignor) do
-        create(:bank_account, description: "teste", city: "Birigui", agency: "001", account: "999", assignor: "5555")
+        create(:bank_account, description: "teste", city: "Birigui", agency: "001", account: "999", assignor: "5555", bank_id: bank.id)
       end
 
       before { get "/api/v1/bank_accounts?description=#{bank_account_description.description}" }
