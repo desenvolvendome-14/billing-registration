@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_01_234552) do
+ActiveRecord::Schema.define(version: 2021_11_08_083353) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,12 +28,13 @@ ActiveRecord::Schema.define(version: 2021_11_01_234552) do
     t.string "district"
     t.string "street"
     t.string "house_number"
-    t.bigint "bank_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "company_id", null: false
-    t.index ["bank_id"], name: "index_addresses_on_bank_id"
+    t.bigint "company_id"
+    t.bigint "participant_id"
+    t.string "complement"
     t.index ["company_id"], name: "index_addresses_on_company_id"
+    t.index ["participant_id"], name: "index_addresses_on_participant_id"
   end
 
   create_table "bank_accounts", force: :cascade do |t|
@@ -85,6 +86,8 @@ ActiveRecord::Schema.define(version: 2021_11_01_234552) do
     t.integer "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "participant_id", null: false
+    t.index ["participant_id"], name: "index_contacts_on_participant_id"
   end
 
   create_table "cost_centers", force: :cascade do |t|
@@ -107,8 +110,10 @@ ActiveRecord::Schema.define(version: 2021_11_01_234552) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "person_type"
     t.integer "client_type"
+    t.string "state_registration"
   end
 
-  add_foreign_key "addresses", "banks"
   add_foreign_key "addresses", "companies"
+  add_foreign_key "addresses", "participants"
+  add_foreign_key "contacts", "participants"
 end
