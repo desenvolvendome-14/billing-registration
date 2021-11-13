@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2021_11_10_004522) do
 
   # These are extensions that must be enabled in order to support this database
@@ -28,12 +29,11 @@ ActiveRecord::Schema.define(version: 2021_11_10_004522) do
     t.string "district"
     t.string "street"
     t.string "house_number"
-    t.bigint "bank_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "company_id", null: false
-    t.bigint "participant_id", null: false
-    t.index ["bank_id"], name: "index_addresses_on_bank_id"
+    t.bigint "company_id"
+    t.bigint "participant_id"
+    t.string "complement"
     t.index ["company_id"], name: "index_addresses_on_company_id"
     t.index ["participant_id"], name: "index_addresses_on_participant_id"
   end
@@ -116,9 +116,7 @@ ActiveRecord::Schema.define(version: 2021_11_10_004522) do
     t.string "state_registration"
   end
 
-  add_foreign_key "addresses", "banks"
   add_foreign_key "addresses", "companies"
   add_foreign_key "addresses", "participants"
-  add_foreign_key "bank_accounts", "banks"
   add_foreign_key "contacts", "participants"
 end

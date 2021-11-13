@@ -1,10 +1,6 @@
 class Address < ApplicationRecord
-  belongs_to :client
-  belongs_to :carrier
-  belongs_to :seller
-  belongs_to :supplier
-  belongs_to :bank
-  belongs_to :company
+  belongs_to :company, optional: true
+  belongs_to :participant, optional: true
 
   validates :zip_code, presence: true
   validates :state, presence: true
