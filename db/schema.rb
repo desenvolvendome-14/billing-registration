@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_13_084912) do
+
+ActiveRecord::Schema.define(version: 2021_11_10_004522) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "account_wallets", force: :cascade do |t|
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "addresses", force: :cascade do |t|
     t.string "zip_code"
@@ -22,12 +29,13 @@ ActiveRecord::Schema.define(version: 2021_10_13_084912) do
     t.string "district"
     t.string "street"
     t.string "house_number"
-    t.bigint "bank_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "company_id", null: false
-    t.index ["bank_id"], name: "index_addresses_on_bank_id"
+    t.bigint "company_id"
+    t.bigint "participant_id"
+    t.string "complement"
     t.index ["company_id"], name: "index_addresses_on_company_id"
+    t.index ["participant_id"], name: "index_addresses_on_participant_id"
   end
 
   create_table "bank_accounts", force: :cascade do |t|
@@ -40,6 +48,8 @@ ActiveRecord::Schema.define(version: 2021_10_13_084912) do
     t.string "assignor"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "bank_id", null: false
+    t.index ["bank_id"], name: "index_bank_accounts_on_bank_id"
   end
 
   create_table "banks", force: :cascade do |t|
@@ -67,7 +77,6 @@ ActiveRecord::Schema.define(version: 2021_10_13_084912) do
     t.string "state_registration"
     t.string "company_name"
     t.string "fantasy_name"
-    t.string "business_phone"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -80,6 +89,8 @@ ActiveRecord::Schema.define(version: 2021_10_13_084912) do
     t.integer "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "participant_id", null: false
+    t.index ["participant_id"], name: "index_contacts_on_participant_id"
   end
 
   create_table "cost_centers", force: :cascade do |t|
@@ -102,8 +113,10 @@ ActiveRecord::Schema.define(version: 2021_10_13_084912) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "person_type"
     t.integer "client_type"
+    t.string "state_registration"
   end
 
-  add_foreign_key "addresses", "banks"
   add_foreign_key "addresses", "companies"
+  add_foreign_key "addresses", "participants"
+  add_foreign_key "contacts", "participants"
 end

@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/mersonff/cpf_cnpj_validator
+  revision: df0bb682fecddb06f1d1bbb64785e94ecc463df9
+  specs:
+    cpf_cnpj_validator (0.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -265,6 +271,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
+  cpf_cnpj_validator!
   database_cleaner
   factory_bot_rails
   faker
