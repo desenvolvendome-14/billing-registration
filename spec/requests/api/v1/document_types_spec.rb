@@ -38,21 +38,23 @@ RSpec.describe "/api/v1/document_types", type: :request do
   end
 
   describe "POST /create" do
-      before { post  api_v1_document_types_url, as: :json, params: { document_type: valid_attributes } }
-      context "with valid parameters" do
-        it "creates a new document" do
-          expect(body_json["description"]).to eq("Dinheiro")
-        end
-      end
+    let(:valid_params) { { description: 'Nu Payments' } }
 
-      context "with invalid parameters" do
-        it "does not create a new ChartsAccount" do
-          expect do
-            post api_v1_document_types_url,
-                 params: { document_type: invalid_attributes }, as: :json
-          end.to change(DocumentType.where(description: :description), :count).by(0)
-        end
+    before { post api_v1_document_types_url, params: valid_params }
+    context "with valid parameters" do
+      it "creates a new document" do
+        expect(body_json["description"]).to eq("Nu Payments")
       end
+    end
+
+    context "with invalid parameters" do
+      it "does not create a new ChartsAccount" do
+        expect do
+          post api_v1_document_types_url,
+               params: { document_type: invalid_attributes }, as: :json
+        end.to change(DocumentType.where(description: :description), :count).by(0)
+      end
+    end
 
 
     context "with invalid parameters" do
@@ -83,7 +85,7 @@ RSpec.describe "/api/v1/document_types", type: :request do
       it "updates the requested document_type" do
         document_type = DocumentType.create! valid_attributes
         patch api_v1_document_type_url(document_type),
-              params: { document_type: new_attributes }, headers: valid_headers, as: :json
+              params: new_attributes, headers: valid_headers, as: :json
         document_type.reload
         expect(document_type.description).to eq("Cartão de Crédito")
       end
@@ -101,7 +103,7 @@ RSpec.describe "/api/v1/document_types", type: :request do
       it "renders a JSON response with errors for the document_type" do
         document_type = DocumentType.create! valid_attributes
         patch api_v1_document_type_url(document_type),
-              params: { document_type: invalid_attributes }, headers: valid_headers, as: :json
+              params: invalid_attributes, headers: valid_headers, as: :json
         expect(response).to have_http_status(:unprocessable_entity)
         expect(response.content_type).to include("application/json")
       end
