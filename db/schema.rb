@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2021_11_10_004522) do
+ActiveRecord::Schema.define(version: 2021_11_12_090128) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -118,5 +117,6 @@ ActiveRecord::Schema.define(version: 2021_11_10_004522) do
 
   add_foreign_key "addresses", "companies"
   add_foreign_key "addresses", "participants"
+  add_foreign_key "bank_accounts", "banks"
   add_foreign_key "contacts", "participants"
 end
