@@ -14,10 +14,7 @@ module Api
       end
 
       def index
-        @cost_centers = CostCenter.all
-        @cost_centers = @cost_centers.where(description: params[:description]) if params[:description]
-
-        render :index
+        @cost_centers = CostCentersFetcher.new(cost_center_params).fetch
       end
 
       def update
