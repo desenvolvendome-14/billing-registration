@@ -42,7 +42,7 @@ RSpec.describe "/api/v1/charts_accounts/", type: :request do
   end
 
   describe "POST /create" do
-    before { post  api_v1_charts_accounts_url, as: :json, params: { charts_account: valid_attributes } }
+    before { post  api_v1_charts_accounts_url, as: :json, params: valid_attributes }
 
     context "with valid parameters" do
       it "creates a new charts account" do
@@ -72,7 +72,7 @@ RSpec.describe "/api/v1/charts_accounts/", type: :request do
       it "updates the requested charts_account" do
         charts_account = ChartsAccount.create! valid_attributes
         patch api_v1_charts_account_url(charts_account),
-              params: { charts_account: new_attributes }, as: :json
+              params: new_attributes, as: :json
         charts_account.reload
         expect(charts_account.description).to eq("Luciano 2")
       end
@@ -82,7 +82,7 @@ RSpec.describe "/api/v1/charts_accounts/", type: :request do
       it "renders a JSON response with errors for the charts_account" do
         # charts_account = ChartsAccount.create! valid_attributes
         patch api_v1_charts_account_url(charts_account),
-              params: { charts_account: invalid_attributes }, headers: valid_headers, as: :json
+              params: invalid_attributes, headers: valid_headers, as: :json
         expect(response).to have_http_status(:unprocessable_entity)
         expect(response.content_type).to include("application/json")
       end
