@@ -8,8 +8,7 @@ module Api
       # GET /document_types
       # GET /document_types.json
       def index
-        @document_types = DocumentType.all
-        @document_types = @document_types.where(description: params[:description]) if params[:description]
+        @document_types = DocumentTypesFetcher.new(document_type_params).fetch
       end
 
       # GET /document_types/1
@@ -53,7 +52,7 @@ module Api
 
       # Only allow a list of trusted parameters through.
       def document_type_params
-        params.require(:document_type).permit(:description)
+        params.permit(:description)
       end
     end
   end
