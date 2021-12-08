@@ -39,11 +39,12 @@ module Api
 
       def participant_params
         return {} unless params.has_key?(:participant)
-        params.require(:participant).permit(:name, :cpf_cnpj, :fantasy_name, :person_type, :client_type, :state_registration)
+        params.require(:participant).permit(:name, :cpf_cnpj, :fantasy_name, :person_type, :client_type, :state_registration,
+                                            addresses_attributes: [ :zip_code, :state, :city, :district, :street, :house_number ])
       end
 
       def save_participant!
-        @participant.save!
+        @participant.save
         render :show
       rescue
         render json: @participant.errors, status: :unprocessable_entity
