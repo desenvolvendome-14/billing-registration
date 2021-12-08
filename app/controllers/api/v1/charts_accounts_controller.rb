@@ -8,9 +8,7 @@ module Api
       # GET /charts_accounts
       # GET /charts_accounts.json
       def index
-        @charts_accounts = ChartsAccount.all
-        @charts_accounts = @charts_accounts.where(description: params[:description]) if params[:description]
-        @charts_accounts = @charts_accounts.where(internal_code: params[:internal_code]) if params[:internal_code]
+        @charts_accounts = ChartsAccountsFetcher.new(charts_account_params).fetch
       end
 
       # GET /charts_accounts/1
@@ -54,7 +52,7 @@ module Api
 
       # Only allow a list of trusted parameters through.
       def charts_account_params
-        params.require(:charts_account).permit(:description, :internal_code)
+        params.permit(:description, :internal_code)
       end
     end
   end

@@ -20,6 +20,18 @@ RSpec.describe 'Api::V1::CostCenters', type: :request do
         expect(response).to have_http_status(201)
       end
     end
+
+    context 'when the request is invalid' do
+      before { post '/api/v1/cost_centers', params: { description: "" } }
+
+      it 'do not create a cost center' do
+        expect(body_json["description"]).to eq(["can't be blank"])
+      end
+
+      it 'returns status code 422' do
+        expect(response).to have_http_status(422)
+      end
+    end
   end
 
   describe 'GET /api/v1/cost_centers' do
