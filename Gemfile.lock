@@ -91,6 +91,10 @@ GEM
       thread_safe (~> 0.3, >= 0.3.1)
     diff-lcs (1.4.4)
     docile (1.4.0)
+    dotenv (2.7.6)
+    dotenv-rails (2.7.6)
+      dotenv (= 2.7.6)
+      railties (>= 3.2)
     equalizer (0.0.11)
     erubi (1.10.0)
     erubis (2.7.0)
@@ -280,6 +284,7 @@ DEPENDENCIES
   byebug
   cpf_cnpj_validator!
   database_cleaner
+  dotenv-rails
   factory_bot_rails
   faker
   httparty
@@ -300,4 +305,4 @@ RUBY VERSION
    ruby 3.0.2p107
 
 BUNDLED WITH
-   2.2.22
+   2.2.30
