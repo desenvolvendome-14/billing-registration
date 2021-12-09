@@ -30,4 +30,7 @@
 .idea/*
 .idea
 
+
 coverage/*
+
+.env
