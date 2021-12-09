@@ -1,21 +1,38 @@
 module Api
   module V1
     class BanksController < ApplicationController
-      # POST api/v1/banks
+      before_action :bank, only: [:show, :update, :destroy]
+
+      def index
+        @banks = BanksFetcher.new(bank_params).fetch
+      end
+
       def create
         @bank = Bank.create(bank_params)
 
         if @bank.save
-          render json: BankRepresenter.new(@bank).as_json, status: :created
+          render :create, status: :created
         else
           render json: @bank.errors, status: :unprocessable_entity
         end
+      end
+
+      def show; end
+
+      def destroy
+        @bank.destroy!
+      rescue
+        render json: @bank.errors, status: :unprocessable_entity
       end
 
       private
 
       def bank_params
         params.permit(:code, :description)
+      end
+
+      def bank
+        @bank = Bank.find(params[:id])
       end
     end
   end

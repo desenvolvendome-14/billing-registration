@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_24_170402) do
+ActiveRecord::Schema.define(version: 2021_11_12_090128) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "account_wallets", force: :cascade do |t|
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "addresses", force: :cascade do |t|
     t.string "zip_code"
@@ -22,18 +28,27 @@ ActiveRecord::Schema.define(version: 2021_09_24_170402) do
     t.string "district"
     t.string "street"
     t.string "house_number"
-    t.bigint "client_id", null: false
-    t.bigint "carrier_id", null: false
-    t.bigint "seller_id", null: false
-    t.bigint "supplier_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "company_id", null: false
-    t.index ["carrier_id"], name: "index_addresses_on_carrier_id"
-    t.index ["client_id"], name: "index_addresses_on_client_id"
+    t.bigint "company_id"
+    t.bigint "participant_id"
+    t.string "complement"
     t.index ["company_id"], name: "index_addresses_on_company_id"
-    t.index ["seller_id"], name: "index_addresses_on_seller_id"
-    t.index ["supplier_id"], name: "index_addresses_on_supplier_id"
+    t.index ["participant_id"], name: "index_addresses_on_participant_id"
+  end
+
+  create_table "bank_accounts", force: :cascade do |t|
+    t.string "description"
+    t.string "city"
+    t.string "agency"
+    t.string "agency_digit"
+    t.string "account"
+    t.string "account_digit"
+    t.string "assignor"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "bank_id", null: false
+    t.index ["bank_id"], name: "index_bank_accounts_on_bank_id"
   end
 
   create_table "banks", force: :cascade do |t|
@@ -43,16 +58,15 @@ ActiveRecord::Schema.define(version: 2021_09_24_170402) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "carriers", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
+  create_table "charge_types", force: :cascade do |t|
+    t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "clients", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
+  create_table "charts_accounts", force: :cascade do |t|
+    t.string "description"
+    t.string "internal_code"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -62,7 +76,6 @@ ActiveRecord::Schema.define(version: 2021_09_24_170402) do
     t.string "state_registration"
     t.string "company_name"
     t.string "fantasy_name"
-    t.string "business_phone"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -75,26 +88,20 @@ ActiveRecord::Schema.define(version: 2021_09_24_170402) do
     t.integer "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "participant_id", null: false
+    t.index ["participant_id"], name: "index_contacts_on_participant_id"
   end
 
-  create_table "foreigns", force: :cascade do |t|
-    t.string "name"
-    t.string "last_name"
-    t.string "cell_phone"
+  create_table "cost_centers", force: :cascade do |t|
+    t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "passport"
   end
 
-  create_table "legal_people", force: :cascade do |t|
-    t.string "corporate_name"
-    t.string "fantasy_name"
-    t.string "state_registration"
-    t.string "municipal_registration"
-    t.string "cell_phone"
+  create_table "document_types", force: :cascade do |t|
+    t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "cnpj"
   end
 
   create_table "participants", force: :cascade do |t|
@@ -105,34 +112,11 @@ ActiveRecord::Schema.define(version: 2021_09_24_170402) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "person_type"
     t.integer "client_type"
+    t.string "state_registration"
   end
 
-  create_table "physical_people", force: :cascade do |t|
-    t.string "name"
-    t.string "last_name"
-    t.string "cell_phone"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "cpf"
-  end
-
-  create_table "sellers", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "suppliers", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  add_foreign_key "addresses", "carriers"
-  add_foreign_key "addresses", "clients"
   add_foreign_key "addresses", "companies"
-  add_foreign_key "addresses", "sellers"
-  add_foreign_key "addresses", "suppliers"
+  add_foreign_key "addresses", "participants"
+  add_foreign_key "bank_accounts", "banks"
+  add_foreign_key "contacts", "participants"
 end
