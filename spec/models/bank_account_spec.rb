@@ -25,6 +25,7 @@ RSpec.describe BankAccount, type: :model do
     expect(bank_account.account_digit).to eq "8"
     expect(bank_account.assignor).to eq "66666"
   end
+
   it { is_expected.to validate_presence_of(:description) }
   it { is_expected.to validate_presence_of(:city) }
   it { is_expected.to validate_presence_of(:agency) }

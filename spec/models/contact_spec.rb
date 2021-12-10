@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Contact, type: :model do
   it { is_expected.to validate_presence_of(:name) }
@@ -7,5 +7,5 @@ RSpec.describe Contact, type: :model do
   it { is_expected.to validate_presence_of(:email) }
 
   it { is_expected.to validate_presence_of :status }
-  it { is_expected.to define_enum_for(:status).with_values({ commercial: 1, residential: 2}) }
+  it { is_expected.to define_enum_for(:status).with_values({ commercial: 1, residential: 2 }) }
 end

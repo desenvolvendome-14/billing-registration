@@ -1,7 +1,7 @@
 module Api
   module V1
     class BanksController < ApplicationController
-      before_action :bank, only: [:show, :update, :destroy]
+      before_action :bank, only: %i[show update destroy]
 
       def index
         @banks = BanksFetcher.new(bank_params).fetch
@@ -21,7 +21,7 @@ module Api
 
       def destroy
         @bank.destroy!
-      rescue
+      rescue StandardError
         render json: @bank.errors, status: :unprocessable_entity
       end
 

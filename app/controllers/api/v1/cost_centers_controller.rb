@@ -21,6 +21,7 @@ module Api
         @cost_center.update(cost_center_params)
         head :no_content
       end
+
       # DELETE /cost_centers/:id
       def destroy
         @cost_center.destroy
@@ -28,6 +29,7 @@ module Api
       end
 
       private
+
       def cost_center_params
         params.permit(:description)
       end
@@ -38,4 +40,3 @@ module Api
     end
   end
 end
-

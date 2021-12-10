@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :account_wallet do
-    description  { "SR" }
+    description { "SR" }
   end
 end

@@ -25,6 +25,7 @@ module Api
         @company.update(company_params)
         head :no_content
       end
+
       # DELETE /companies/:id
       def destroy
         @company.destroy
@@ -32,6 +33,7 @@ module Api
       end
 
       private
+
       def company_params
         params.permit(:company_name, :state_registration, :cnpj, :fantasy_name, :business_phone)
       end
@@ -42,4 +44,3 @@ module Api
     end
   end
 end
-

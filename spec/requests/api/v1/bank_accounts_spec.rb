@@ -30,42 +30,52 @@ RSpec.describe "/api/v1/bank_accounts/", type: :request do
 
     context "with filters" do
       let(:bank_account_description) do
-        create(:bank_account, description: "teste", city: "Birigui", agency: "001", account: "999", assignor: "7777", bank_id: bank.id)
+        create(:bank_account, description: "teste", city: "Birigui", agency: "001", account: "999", assignor: "7777",
+                              bank_id: bank.id)
       end
       let(:bank_account_city) do
-        create(:bank_account, description: "teste", city: "Coroados", agency: "001", account: "999", assignor: "7777", bank_id: bank.id)
+        create(:bank_account, description: "teste", city: "Coroados", agency: "001", account: "999", assignor: "7777",
+                              bank_id: bank.id)
       end
       let(:bank_account_agency) do
-        create(:bank_account, description: "teste", city: "Birigui", agency: "012", account: "999", assignor: "7777", bank_id: bank.id)
+        create(:bank_account, description: "teste", city: "Birigui", agency: "012", account: "999", assignor: "7777",
+                              bank_id: bank.id)
       end
       let(:bank_account_account) do
-        create(:bank_account, description: "teste", city: "Birigui", agency: "001", account: "777", assignor: "7777", bank_id: bank.id)
+        create(:bank_account, description: "teste", city: "Birigui", agency: "001", account: "777", assignor: "7777",
+                              bank_id: bank.id)
       end
       let(:bank_account_assignor) do
-        create(:bank_account, description: "teste", city: "Birigui", agency: "001", account: "999", assignor: "5555", bank_id: bank.id)
+        create(:bank_account, description: "teste", city: "Birigui", agency: "001", account: "999", assignor: "5555",
+                              bank_id: bank.id)
       end
 
       before { get "/api/v1/bank_accounts?description=#{bank_account_description.description}" }
+
+      before { get "/api/v1/bank_accounts?city=#{bank_account_assignor.account}" }
+
+      before { get "/api/v1/bank_accounts?city=#{bank_account_account.account}" }
+
+      before { get "/api/v1/bank_accounts?city=#{bank_account_agency.agency}" }
+
+      before { get "/api/v1/bank_accounts?city=#{bank_account_city.city}" }
+
       it "returns filtered bank account by description" do
         expect(bank_account_description.description).to eq("teste")
       end
 
-      before { get "/api/v1/bank_accounts?city=#{bank_account_city.city}" }
       it "returns filtered bank account by city" do
         expect(bank_account_city.city).to eq("Coroados")
       end
 
-      before { get "/api/v1/bank_accounts?city=#{bank_account_agency.agency}" }
       it "returns filtered bank account by agency" do
         expect(bank_account_agency.agency).to eq("012")
       end
 
-      before { get "/api/v1/bank_accounts?city=#{bank_account_account.account}" }
       it "returns filtered bank account by account" do
         expect(bank_account_account.account).to eq("777")
       end
 
-      before { get "/api/v1/bank_accounts?city=#{bank_account_assignor.account}" }
       it "returns filtered bank account by assignor" do
         expect(bank_account_assignor.assignor).to eq("5555")
       end
