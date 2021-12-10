@@ -229,6 +229,8 @@ GEM
       activesupport (>= 4.2.0)
       rack (>= 1.1)
       rubocop (>= 1.7.0, < 2.0)
+    rubocop-rspec (2.6.0)
+      rubocop (~> 1.19)
     ruby-progressbar (1.11.0)
     ruby_parser (3.17.0)
       sexp_processor (~> 4.15, >= 4.15.1)
@@ -295,6 +297,7 @@ DEPENDENCIES
   rails (~> 6.1.4, >= 6.1.4.1)
   rspec-rails (~> 5.0.0)
   rubocop-rails
+  rubocop-rspec
   rubycritic
   shoulda-matchers
   simplecov

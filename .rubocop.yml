@@ -1,3 +1,5 @@
+require: rubocop-rspec
+
 AllCops:
   TargetRubyVersion: 3.0.2
   Include:
@@ -48,4 +50,7 @@ Metrics/AbcSize:
   Max: 40
 
 Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
   Enabled: false
