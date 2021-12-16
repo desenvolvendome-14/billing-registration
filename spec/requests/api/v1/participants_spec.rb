@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe "Api::V1::Participants", type: :request do
   describe "GET /participants" do
@@ -10,12 +10,12 @@ RSpec.describe "Api::V1::Participants", type: :request do
       expect(response).to have_http_status(:ok)
     end
 
-    context 'with filters' do
+    context "with filters" do
       let!(:participant) { create(:participant) }
 
       before { get "/api/v1/participants?name=#{participant.name}" }
 
-      it 'returns filtered participant' do
+      it "returns filtered participant" do
         expect(body_json["participants"]).not_to be_empty
         expect(body_json["participants"].size).to eq(5)
       end
@@ -24,18 +24,19 @@ RSpec.describe "Api::V1::Participants", type: :request do
 
   describe "POST /participants" do
     let(:url) { "/api/v1/participants" }
-    let!(:participant) { create(:participant) }
     let(:participant_params) { attributes_for(:participant) }
 
-    it 'adds a new Participant' do
+    before { create(:participant) }
+
+    it "adds a new Participant" do
       expect do
         post url, headers: headers, params: { participant: participant_params }
       end.to change(Participant, :count).by(1)
     end
 
-    it 'returns success status' do
+    it "returns success status" do
       headers = { "ACCEPT" => "application/json" }
-      post url,  headers: headers, params: { participant: participant_params }
+      post url, headers: headers, params: { participant: participant_params }
       expect(response).to have_http_status(:ok)
     end
   end
@@ -46,17 +47,17 @@ RSpec.describe "Api::V1::Participants", type: :request do
     let(:new_name) { "Goku" }
     let(:participant_params) { { participant: { name: new_name } }.to_json }
 
-    it 'returns success status' do
+    it "returns success status" do
       patch url, headers: headers, params: participant_params
       expect(response).to have_http_status(:ok)
     end
   end
 
-  describe 'DELETE /participants' do
+  describe "DELETE /participants" do
     let(:url) { "/api/v1/participants/#{participant.id}" }
     let!(:participant) { create(:participant) }
 
-    it 'removes Participant' do
+    it "removes Participant" do
       headers = { "ACCEPT" => "application/json" }
 
       expect do
@@ -64,7 +65,7 @@ RSpec.describe "Api::V1::Participants", type: :request do
       end.to change(Participant, :count).by(-1)
     end
 
-    it 'returns success status' do
+    it "returns success status" do
       headers = { "ACCEPT" => "application/json" }
 
       delete url, headers: headers

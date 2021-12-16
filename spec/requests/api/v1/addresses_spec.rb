@@ -14,8 +14,7 @@ RSpec.describe "/api/v1/address/", type: :request do
       street: "",
       house_number: "",
       complement: "",
-      participant_id: ""
-    }
+      participant_id: "" }
   end
 
   let(:valid_headers) do
@@ -103,5 +102,4 @@ RSpec.describe "/api/v1/address/", type: :request do
       end.to change(Address, :count).by(0)
     end
   end
-
 end

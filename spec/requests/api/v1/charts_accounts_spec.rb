@@ -22,12 +22,12 @@ RSpec.describe "/api/v1/charts_accounts/", type: :request do
       expect(response).to be_successful
     end
 
-    context 'with filters' do
-      let(:charts_account) { create(:charts_account, description: "teste", internal_code: 1 )}
+    context "with filters" do
+      let(:charts_account) { create(:charts_account, description: "teste", internal_code: 1) }
 
       before { get "/api/v1/charts_accounts?description=#{charts_account.description}" }
 
-      it 'returns filtered cost centers' do
+      it "returns filtered cost centers" do
         expect(charts_account.description).to eq("teste")
         expect(charts_account.internal_code.to_s).to eq("1")
       end

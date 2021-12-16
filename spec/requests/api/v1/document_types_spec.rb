@@ -1,16 +1,15 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe "/api/v1/document_types", type: :request do
-
   let(:document_type) { create(:document_type) }
   let(:valid_attributes) { build(:document_type).attributes }
 
-  let(:invalid_attributes) {
+  let(:invalid_attributes) do
     { description: "" }
-  }
-  let(:valid_headers) {
+  end
+  let(:valid_headers) do
     {}
-  }
+  end
 
   describe "GET /index" do
     it "renders a successful response" do
@@ -18,12 +17,13 @@ RSpec.describe "/api/v1/document_types", type: :request do
       get api_v1_document_types_url, headers: valid_headers, as: :json
       expect(response).to be_successful
     end
-    context 'with filters' do
-      let(:document_type) { create(:document_type, description: "teste")}
+
+    context "with filters" do
+      let(:document_type) { create(:document_type, description: "teste") }
 
       before { get "/api/v1/document_types?description=#{document_type.description}" }
 
-      it 'returns filtered cost centers' do
+      it "returns filtered cost centers" do
         expect(document_type.description).to eq("teste")
       end
     end
@@ -38,9 +38,10 @@ RSpec.describe "/api/v1/document_types", type: :request do
   end
 
   describe "POST /create" do
-    let(:valid_params) { { description: 'Nu Payments' } }
+    let(:valid_params) { { description: "Nu Payments" } }
 
     before { post api_v1_document_types_url, params: valid_params }
+
     context "with valid parameters" do
       it "creates a new document" do
         expect(body_json["description"]).to eq("Nu Payments")
@@ -48,39 +49,28 @@ RSpec.describe "/api/v1/document_types", type: :request do
     end
 
     context "with invalid parameters" do
-      it "does not create a new ChartsAccount" do
+      it "does not create a new DocumentType" do
         expect do
           post api_v1_document_types_url,
                params: { document_type: invalid_attributes }, as: :json
-        end.to change(DocumentType.where(description: :description), :count).by(0)
-      end
-    end
-
-
-    context "with invalid parameters" do
-      it "does not create a new DocumentType" do
-        expect {
-          post api_v1_document_types_url,
-               params: { document_type: invalid_attributes }, as: :json
-        }.to change(DocumentType, :count).by(0)
+        end.to change(DocumentType, :count).by(0)
       end
 
       it "renders a JSON response with errors for the new document_type" do
         post api_v1_document_types_url,
              params: { document_type: invalid_attributes }, headers: valid_headers, as: :json
         expect(response).to have_http_status(:unprocessable_entity)
-        expect(response.content_type).to include("application/json")
       end
     end
   end
 
   describe "PATCH /update" do
     context "with valid parameters" do
-      let(:new_attributes) {
+      let(:new_attributes) do
         {
           description: "Cartão de Crédito"
         }
-      }
+      end
 
       it "updates the requested document_type" do
         document_type = DocumentType.create! valid_attributes
@@ -95,7 +85,6 @@ RSpec.describe "/api/v1/document_types", type: :request do
         patch api_v1_document_type_url(document_type),
               params: { document_type: new_attributes }, headers: valid_headers, as: :json
         expect(response).to have_http_status(:ok)
-        expect(response.content_type).to include("application/json")
       end
     end
 
@@ -105,7 +94,6 @@ RSpec.describe "/api/v1/document_types", type: :request do
         patch api_v1_document_type_url(document_type),
               params: invalid_attributes, headers: valid_headers, as: :json
         expect(response).to have_http_status(:unprocessable_entity)
-        expect(response.content_type).to include("application/json")
       end
     end
   end
@@ -113,9 +101,9 @@ RSpec.describe "/api/v1/document_types", type: :request do
   describe "DELETE /destroy" do
     it "destroys the requested document_type" do
       document_type = DocumentType.create! valid_attributes
-      expect {
+      expect do
         delete api_v1_document_type_url(document_type), headers: valid_headers, as: :json
-      }.to change(DocumentType, :count).by(-1)
+      end.to change(DocumentType, :count).by(-1)
     end
   end
 end

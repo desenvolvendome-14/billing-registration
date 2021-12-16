@@ -1,13 +1,16 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe "Api::V1::Banks", type: :request do
   describe "GET /banks" do
     let(:url) { "/api/v1/banks" }
-    let!(:banks) { create(:bank) }
+
+    before do
+      create(:bank)
+    end
 
     it "returns all Banks" do
       get url
-      expect(body_json['banks']).not_to be_empty
+      expect(body_json["banks"]).not_to be_empty
     end
 
     it "returns success status" do
@@ -18,18 +21,18 @@ RSpec.describe "Api::V1::Banks", type: :request do
 
   describe "POST /api/v1/banks" do
     # valid bank
-    let(:valid_params) { { code: 260, description: 'Nu Payments' } }
+    let(:valid_params) { { code: 260, description: "Nu Payments" } }
 
-    context 'when the request is valid' do
-      before { post '/api/v1/banks', params: valid_params }
+    context "when the request is valid" do
+      before { post "/api/v1/banks", params: valid_params }
 
-      it 'create a bank' do
-        expect(body_json['bank']['code']).to eq(260)
-        expect(body_json['bank']['description']).to eq('Nu Payments')
+      it "create a bank" do
+        expect(body_json["bank"]["code"]).to eq(260)
+        expect(body_json["bank"]["description"]).to eq("Nu Payments")
       end
 
-      it 'returns status code 201' do
-        expect(response).to have_http_status(201)
+      it "returns status code 201" do
+        expect(response).to have_http_status(:created)
       end
     end
   end
@@ -38,7 +41,7 @@ RSpec.describe "Api::V1::Banks", type: :request do
     let(:url) { "/api/v1/banks/#{bank.id}" }
     let!(:bank) { create(:bank) }
 
-    it 'removes Bank' do
+    it "removes Bank" do
       headers = { "ACCEPT" => "application/json" }
 
       expect do
@@ -46,7 +49,7 @@ RSpec.describe "Api::V1::Banks", type: :request do
       end.to change(Bank, :count).by(-1)
     end
 
-    it 'returns success status' do
+    it "returns success status" do
       headers = { "ACCEPT" => "application/json" }
 
       delete url, headers: headers

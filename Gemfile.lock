@@ -91,6 +91,10 @@ GEM
       thread_safe (~> 0.3, >= 0.3.1)
     diff-lcs (1.4.4)
     docile (1.4.0)
+    dotenv (2.7.6)
+    dotenv-rails (2.7.6)
+      dotenv (= 2.7.6)
+      railties (>= 3.2)
     equalizer (0.0.11)
     erubi (1.10.0)
     erubis (2.7.0)
@@ -225,6 +229,8 @@ GEM
       activesupport (>= 4.2.0)
       rack (>= 1.1)
       rubocop (>= 1.7.0, < 2.0)
+    rubocop-rspec (2.6.0)
+      rubocop (~> 1.19)
     ruby-progressbar (1.11.0)
     ruby_parser (3.17.0)
       sexp_processor (~> 4.15, >= 4.15.1)
@@ -280,6 +286,7 @@ DEPENDENCIES
   byebug
   cpf_cnpj_validator!
   database_cleaner
+  dotenv-rails
   factory_bot_rails
   faker
   httparty
@@ -290,6 +297,7 @@ DEPENDENCIES
   rails (~> 6.1.4, >= 6.1.4.1)
   rspec-rails (~> 5.0.0)
   rubocop-rails
+  rubocop-rspec
   rubycritic
   shoulda-matchers
   simplecov
@@ -300,4 +308,4 @@ RUBY VERSION
    ruby 3.0.2p107
 
 BUNDLED WITH
-   2.2.22
+   2.2.30

@@ -1,7 +1,7 @@
 module Api
   module V1
     class AccountWalletsController < ApplicationController
-      before_action :account_wallet, only: [:show, :update, :destroy]
+      before_action :account_wallet, only: %i[show update destroy]
 
       def index
         @account_wallets = AccountWalletsFetcher.new(account_wallet_params).fetch
@@ -29,7 +29,7 @@ module Api
 
       def destroy
         @account_wallet.destroy!
-      rescue
+      rescue StandardError
         render json: @account_wallet.errors, status: :unprocessable_entity
       end
 
