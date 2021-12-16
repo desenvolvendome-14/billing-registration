@@ -18,8 +18,9 @@ RSpec.describe Address, type: :model do
   end
 
   it "create charts account with factory other values" do
-    address = build(:address, zip_code: "16200203", state: "SP", city: "Birigui", district: "Vila Angélica",
-                              street: "Avenida São Francisco", house_number: "156", complement: "predio", participant_id: "2")
+    address = build(:address, zip_code: "16200203", state: "SP", city: "Birigui",
+                              district: "Vila Angélica", street: "Avenida São Francisco",
+                              house_number: "156", complement: "predio", participant_id: "2")
 
     expect(address.zip_code).to eq("16200203")
     expect(address.state).to eq("SP")

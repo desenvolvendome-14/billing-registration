@@ -3,7 +3,10 @@ require "rails_helper"
 RSpec.describe "Api::V1::Banks", type: :request do
   describe "GET /banks" do
     let(:url) { "/api/v1/banks" }
-    let!(:banks) { create(:bank) }
+
+    before do
+      create(:bank)
+    end
 
     it "returns all Banks" do
       get url

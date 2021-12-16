@@ -50,33 +50,28 @@ RSpec.describe "/api/v1/bank_accounts/", type: :request do
                               bank_id: bank.id)
       end
 
-      before { get "/api/v1/bank_accounts?description=#{bank_account_description.description}" }
-
-      before { get "/api/v1/bank_accounts?city=#{bank_account_assignor.account}" }
-
-      before { get "/api/v1/bank_accounts?city=#{bank_account_account.account}" }
-
-      before { get "/api/v1/bank_accounts?city=#{bank_account_agency.agency}" }
-
-      before { get "/api/v1/bank_accounts?city=#{bank_account_city.city}" }
-
       it "returns filtered bank account by description" do
+        get "/api/v1/bank_accounts?description=#{bank_account_description.description}"
         expect(bank_account_description.description).to eq("teste")
       end
 
       it "returns filtered bank account by city" do
+        get "/api/v1/bank_accounts?city=#{bank_account_city.city}"
         expect(bank_account_city.city).to eq("Coroados")
       end
 
       it "returns filtered bank account by agency" do
+        get "/api/v1/bank_accounts?city=#{bank_account_agency.agency}"
         expect(bank_account_agency.agency).to eq("012")
       end
 
       it "returns filtered bank account by account" do
+        get "/api/v1/bank_accounts?city=#{bank_account_account.account}"
         expect(bank_account_account.account).to eq("777")
       end
 
       it "returns filtered bank account by assignor" do
+        get "/api/v1/bank_accounts?city=#{bank_account_assignor.account}"
         expect(bank_account_assignor.assignor).to eq("5555")
       end
     end
@@ -110,6 +105,7 @@ RSpec.describe "/api/v1/bank_accounts/", type: :request do
 
   describe "PATCH /update" do
     context "with valid parameters" do
+      let(:bank_account) { BankAccount.create! valid_attributes }
       let(:new_attributes) do
         {
           description: "Conta Salário"
@@ -117,7 +113,6 @@ RSpec.describe "/api/v1/bank_accounts/", type: :request do
       end
 
       it "updates the requested BankAccount" do
-        bank_account = BankAccount.create! valid_attributes
         patch api_v1_bank_account_url(bank_account),
               params: { bank_account: new_attributes }, as: :json
         bank_account.reload

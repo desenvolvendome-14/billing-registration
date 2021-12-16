@@ -46,7 +46,8 @@ RSpec.describe "Api::V1::Companies", type: :request do
       let!(:company) { create(:company, company_name: "teste", cnpj: CNPJ.generate, fantasy_name: "teste fantasia") }
 
       before do
-        get "/api/v1/companies?company_name=#{company.company_name}&cnpj=#{company.cnpj}&fantasy_name=#{company.fantasy_name}"
+        query = "company_name=#{company.company_name}&cnpj=#{company.cnpj}&fantasy_name=#{company.fantasy_name}"
+        get "/api/v1/companies?#{query}"
       end
 
       it "returns filtered companies" do
