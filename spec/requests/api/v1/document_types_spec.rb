@@ -60,7 +60,6 @@ RSpec.describe "/api/v1/document_types", type: :request do
         post api_v1_document_types_url,
              params: { document_type: invalid_attributes }, headers: valid_headers, as: :json
         expect(response).to have_http_status(:unprocessable_entity)
-        expect(response.content_type).to include("application/json")
       end
     end
   end
@@ -86,7 +85,6 @@ RSpec.describe "/api/v1/document_types", type: :request do
         patch api_v1_document_type_url(document_type),
               params: { document_type: new_attributes }, headers: valid_headers, as: :json
         expect(response).to have_http_status(:ok)
-        expect(response.content_type).to include("application/json")
       end
     end
 
@@ -96,7 +94,6 @@ RSpec.describe "/api/v1/document_types", type: :request do
         patch api_v1_document_type_url(document_type),
               params: invalid_attributes, headers: valid_headers, as: :json
         expect(response).to have_http_status(:unprocessable_entity)
-        expect(response.content_type).to include("application/json")
       end
     end
   end
