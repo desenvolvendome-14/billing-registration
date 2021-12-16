@@ -11,7 +11,10 @@ class Participant < ApplicationRecord
   has_many :contacts
   has_many :addresses
 
+  accepts_nested_attributes_for :addresses
+
   before_save :fantasy_name_nil?
+  before_validation :retrieve_address
 
   def fantasy_name_nil?
     self.fantasy_name = name
@@ -20,6 +23,19 @@ class Participant < ApplicationRecord
   def validate_cpf_cnpj
     unless CPF.valid?(cpf_cnpj) || CNPJ.valid?(cpf_cnpj)
       errors.add(:cpf_cnpj, :invalid)
+    end
+  end
+
+  def retrieve_address
+    return if addresses.empty?
+
+    addresses.each do |address|
+      response = HTTParty.get('https://viacep.com.br/ws/'"#{address.zip_code}"'/json/')
+      address.state = response.parsed_response["uf"] if address.state.nil?
+      address.city = response.parsed_response["localidade"] if address.city.nil?
+      address.district = response.parsed_response["bairro"] if address.district.nil?
+      address.street = response.parsed_response["logradouro"] if address.street.nil?
+      address.complement = response.parsed_response["complemento"] if address.complement.nil?
     end
   end
 

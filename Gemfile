@@ -20,6 +20,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'image_processing', '~> 1.2'
 
 gem 'cpf_cnpj_validator', git: 'https://github.com/mersonff/cpf_cnpj_validator'
+gem 'httparty'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
